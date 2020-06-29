@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ombre_widget_package/helper/utils.dart';
 
 class ProcessIndicator extends StatelessWidget{
@@ -19,10 +18,10 @@ class ProcessIndicator extends StatelessWidget{
           indicator.add(
             Expanded(
               child: Container(
-                height: ScreenUtil().setHeight(3),
+                height: setHeight(3),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(ScreenUtil().setHeight(50)),
-                  color: Color(hexStringToHexInt('#BB2034')),
+                  borderRadius: BorderRadius.circular(setHeight(50)),
+                  color: Color(hexStringToHexInt('#E5333B')),
                 ),
               ),
             ),
@@ -31,48 +30,50 @@ class ProcessIndicator extends StatelessWidget{
           indicator.add(
             Expanded(
               child: Container(
-                height: ScreenUtil().setHeight(3),
+                height: setHeight(3),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(ScreenUtil().setHeight(50)),
-                  color: Color(hexStringToHexInt('#DEE2E6')),
+                  borderRadius: BorderRadius.circular(setHeight(50)),
+                  color: Color(hexStringToHexInt('#4DFFFCF2')),
                 ),
               ),
             ),
           );
         }
       }
+
       if(isSelectIndicator[i]){
         indicator.add(
             Container(
-              height: ScreenUtil().setHeight(32),
-              width: ScreenUtil().setHeight(32),
+              height: setHeight(26),
+              width: setHeight(26),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(ScreenUtil().setHeight(50)),
-                  color: Color(hexStringToHexInt('#BB2034'))
+                  borderRadius: BorderRadius.circular(setHeight(50)),
+                  color: Color(hexStringToHexInt('#E5333B'))
               ),
               child: Center(
                 child: Text(
                   '${i + 1}',
                   textAlign: TextAlign.center,
-                  style: getCustomFont(Color(hexStringToHexInt('#F1F3F5')), 24, 'Roboto-Regular'),
+                  style: getCustomFont(Color(hexStringToHexInt('#F1F3F5')), 11, 'Poppins-Regular'),
                 ),
               ),
             )
         );
-      }else{
+      }
+      else{
         indicator.add(
           Container(
-            height: ScreenUtil().setHeight(24),
-            width: ScreenUtil().setHeight(24),
+            height: setHeight(20),
+            width: setHeight(20),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(ScreenUtil().setHeight(50)),
-                color: Color(hexStringToHexInt('#DEE2E6'))
+                borderRadius: BorderRadius.circular(setHeight(50)),
+                color: Color(hexStringToHexInt('#4DFFFCF2'))
             ),
             child: Center(
               child: Text(
                 '${i + 1}',
                 textAlign: TextAlign.center,
-                style: getCustomFont(Color(hexStringToHexInt('#495057')), 16, 'Roboto-Regular'),
+                style: getCustomFont(Color(hexStringToHexInt('#F1F3F5')), 11, 'Poppins-Regular'),
               ),
             ),
           ),
@@ -82,14 +83,14 @@ class ProcessIndicator extends StatelessWidget{
 
     return Padding(
       padding: EdgeInsets.only(
-        top: ScreenUtil().setHeight(top),
-        left: ScreenUtil().setWidth(76),
-        right: ScreenUtil().setWidth(76),
+        top: setHeight(top),
+        left: setWidth(76),
+        right: setWidth(76),
       ),
       child: Hero(
         tag: 'indicator',
         child: Container(
-          height: ScreenUtil().setHeight(34),
+          height: setHeight(34),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: indicator,
