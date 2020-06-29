@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ombre_widget_package/header/normal_text.dart';
 import 'package:ombre_widget_package/helper/utils.dart';
 
 class TextFieldForm extends StatelessWidget{
 
   final String labelText;
   final String placeholder;
+  String infoText;
   TextInputType keyboardType;
   TextInputAction textInputAction;
   int maxLength;
+  bool isError;
   final TextEditingController textController;
   final FocusNode focusNode;
   final ValueChanged<String> onFieldSubmitted;
@@ -26,6 +29,8 @@ class TextFieldForm extends StatelessWidget{
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
     this.maxLength = 100,
+    this.infoText = '',
+    this.isError = false,
   });
 
   @override
@@ -44,6 +49,7 @@ class TextFieldForm extends StatelessWidget{
           decoration: BoxDecoration(
             color: Color(hexStringToHexInt('#4D574242')),
             borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+            border: isError ? Border.all(width: setHeight(1), color: Color(hexStringToHexInt('#E5333B'))) : null,
           ),
           child: TextFormField(
             decoration: inputDecoration(placeholder),
@@ -58,29 +64,19 @@ class TextFieldForm extends StatelessWidget{
             maxLength: maxLength,
           ),
         ),
+        Padding(
+          padding: EdgeInsets.only(
+            top: setHeight(8),
+          ),
+          child: Align(
+            alignment: AlignmentDirectional.topStart,
+            child: NormalText(
+              text: infoText,
+              colorHex: isError ? '#E5333B' : '#FFFCF2',
+            ),
+          ),
+        ),
       ],
-    );
-  }
-
-  InputDecoration inputDecoration(String placeholder){
-    return InputDecoration(
-      labelText: '$placeholder',
-      labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 14, 'Poppins-Regular'),
-      hasFloatingPlaceholder: false,
-      enabledBorder: const OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.transparent, width: 0.0),
-      ),
-      contentPadding: EdgeInsets.only(
-        top: setHeight(17),
-        bottom: setHeight(17),
-        left: setWidth(28),
-        right: setWidth(28),
-      ),
-      counterText: "",
-      focusedBorder:OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.transparent, width: 0.0),
-        borderRadius: BorderRadius.circular(5.0),
-      ),
     );
   }
 }
