@@ -21,13 +21,9 @@ class SingleButton extends StatelessWidget{
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(ScreenUtil().setHeight(64))
       ),
-      child: Material(
-        elevation: ScreenUtil().setHeight(2),
-        shadowColor: Color(hexStringToHexInt('#40BB2034')),
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(ScreenUtil().setHeight(64)),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(64)),
-          child: CupertinoButton(
+        child: CupertinoButton(
             padding: const EdgeInsets.all(0.0),
             child: Stack(
               fit: StackFit.expand,
@@ -36,8 +32,8 @@ class SingleButton extends StatelessWidget{
                   decoration: BoxDecoration(
                     //border: onPressed == null ? Border.all(color: Color(hexStringToHexInt('#a1a1a1'))) : Border.all(color: Color(hexStringToHexInt('#D67154'))),
                     borderRadius: BorderRadius.all(Radius.circular(ScreenUtil().setHeight(64))),
-                    color: Colors.transparent,
-                    gradient: isFill ? LinearGradient(
+                    color: Colors.white,
+                    gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       stops: [0.0, 0.17, 0.47, 0.69, 1.0],
@@ -48,17 +44,17 @@ class SingleButton extends StatelessWidget{
                         Color(hexStringToHexInt('#C81D5E')),
                         Color(hexStringToHexInt('#A91E5E')),
                       ],
-                    ) : null,
+                    ),
                   ),
                   child: Center(
-                    child: isLoading ? loadIndicator(isFill: isFill) : Text(title.toUpperCase(),
+                    child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
                       style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 14, 'Poppins-Bold'),
                       textAlign: TextAlign.center,
                     ),
                   ),
                 ) : UnicornOutlineButton(
                   strokeWidth: 2,
-                  radius: 24,
+                  radius: ScreenUtil().setHeight(64),
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
@@ -72,7 +68,7 @@ class SingleButton extends StatelessWidget{
                     ],
                   ),
                   child: Center(
-                    child: isLoading ? loadIndicator(isFill: isFill) : Text(title.toUpperCase(),
+                    child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
                       style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 14, 'Poppins-Bold'),
                       textAlign: TextAlign.center,
                     ),
@@ -81,7 +77,6 @@ class SingleButton extends StatelessWidget{
               ],
             ),
             onPressed: isLoading ? null : onPressed
-          ),
         ),
       ),
     );
