@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+
+init(BuildContext context){
+  ScreenUtil.init(width: 360, height: 640, allowFontScaling: true);
+}
+
 String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
 TextStyle getCustomFont(Color color, double fontSize, String fontName, { TextDecoration decoration = TextDecoration.none}) {
@@ -51,10 +56,10 @@ Widget loadIndicatorFullScreen({bool isFill = false}){
   );
 }
 
-double setHeight(int height){
+double setHeight(double height){
   return ScreenUtil().setHeight(height);
 }
 
-double setWidth(int width){
+double setWidth(double width){
   return ScreenUtil().setWidth(width);
 }
