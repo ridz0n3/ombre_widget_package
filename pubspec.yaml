@@ -8,8 +8,11 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_screenutil:
+  flutter_spinkit:
   flutter:
     sdk: flutter
+
 
 dev_dependencies:
   flutter_test:
