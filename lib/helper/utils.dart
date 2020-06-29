@@ -64,7 +64,7 @@ double setWidth(double width){
   return ScreenUtil().setWidth(width);
 }
 
-Widget appBar({String title, bool hasBack, BuildContext context}){
+Widget appBar({String title, bool hasBack = true, BuildContext context}){
 
   return AppBar(
     title: Text(title, style: TextStyle(color: Colors.white)),
