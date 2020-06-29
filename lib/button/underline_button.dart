@@ -14,21 +14,23 @@ class UnderlineButton extends StatelessWidget{
     return CupertinoButton(
       padding: EdgeInsets.all(0),
       onPressed: onPressed,
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: ScreenUtil().setWidth(width),
-            child: Text(
-              title,
-              style: getCustomFont(Color(hexStringToHexInt('#FFFFFF')), 14, 'Poppins-Bold'),
+      child: Container(
+        width: ScreenUtil().setWidth(width),
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Text(
+                title,
+                style: getCustomFont(Color(hexStringToHexInt('#FFFFFF')), 14, 'Poppins-Bold'),
+              ),
             ),
-          ),
-          SizedBox(height: ScreenUtil().setHeight(5),),
-          Container(
-            height: ScreenUtil().setHeight(1),
-            color: Color(hexStringToHexInt('#F89825')),
-          )
-        ],
+            SizedBox(height: ScreenUtil().setHeight(5),),
+            Container(
+              height: ScreenUtil().setHeight(1),
+              color: Color(hexStringToHexInt('#F89825')),
+            )
+          ],
+        ),
       ),
     );
   }
