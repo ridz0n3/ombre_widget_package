@@ -43,13 +43,13 @@ class _SplashScreenState extends State<SplashScreen>  with SingleTickerProviderS
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        width: setHeight(340),
-                        height: setHeight(340),
+                        width: setHeight(240),
+                        height: setHeight(240),
                         child: Lottie(
                           composition: _composition,
                           size: Size(
+                            setHeight(240),
                             setHeight(340),
-                            setHeight(440),
                           ),
                           controller: _controller,
                         ),
