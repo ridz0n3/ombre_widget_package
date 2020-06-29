@@ -16,7 +16,7 @@ class HeaderText extends StatelessWidget{
         right: ScreenUtil().setWidth(33),
       ),
       child: Hero(
-        tag: 'subheader',
+        tag: 'header',
         child: Container(
           child: Center(
             child: Text(
