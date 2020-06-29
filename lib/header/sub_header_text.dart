@@ -18,10 +18,12 @@ class SubHeaderText extends StatelessWidget{
       child: Hero(
         tag: 'subheader',
         child: Container(
-          child: Text(
-            '$title',
-            textAlign: TextAlign.center,
-            style: getCustomFont(Color(hexStringToHexInt('#FDFFFC')), 14, 'Poppins-Regular'),
+          child: Center(
+            child: Text(
+              '$title',
+              textAlign: TextAlign.center,
+              style: getCustomFont(Color(hexStringToHexInt('#FDFFFC')), 14, 'Poppins-Regular'),
+            ),
           ),
         ),
       ),
