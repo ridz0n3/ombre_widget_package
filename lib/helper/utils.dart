@@ -63,3 +63,19 @@ double setHeight(double height){
 double setWidth(double width){
   return ScreenUtil().setWidth(width);
 }
+
+Widget appBar({String title, bool hasBack, BuildContext context}){
+
+  return AppBar(
+    title: Text(title, style: TextStyle(color: Colors.white)),
+    centerTitle: true,
+    automaticallyImplyLeading: hasBack,
+    leading: hasBack ? new IconButton(
+      icon: new Icon(Icons.arrow_back_ios),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    ) : null,
+    backgroundColor: Color(hexStringToHexInt('#040303')),
+  );
+}
