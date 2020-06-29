@@ -41,6 +41,7 @@ class _SplashScreenState extends State<SplashScreen>  with SingleTickerProviderS
                 child: Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
                         width: setHeight(240),
