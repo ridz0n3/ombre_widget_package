@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -71,7 +72,7 @@ Widget appBar({String title, bool hasBack = true, BuildContext context}){
     centerTitle: true,
     automaticallyImplyLeading: hasBack,
     leading: hasBack ? new IconButton(
-      icon: new Icon(Icons.arrow_back_ios),
+      icon: new Icon(CupertinoIcons.back),
       onPressed: () {
         Navigator.of(context).pop();
       },
