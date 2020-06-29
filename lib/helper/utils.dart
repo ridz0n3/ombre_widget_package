@@ -50,3 +50,11 @@ Widget loadIndicatorFullScreen({bool isFill = false}){
     ],
   );
 }
+
+double setHeight(int height){
+  return ScreenUtil().setHeight(height);
+}
+
+double setWidth(int width){
+  return ScreenUtil().setWidth(width);
+}
