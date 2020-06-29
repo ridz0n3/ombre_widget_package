@@ -51,7 +51,7 @@ class SingleButton extends StatelessWidget{
                   ),
                   child: Center(
                     child: isLoading ? loadIndicator(isFill: isFill) : Text(title.toUpperCase(),
-                      style: getCustomFont(Color(hexStringToHexInt(isFill ? '#ffffff' : '#D67154')), 14, 'Roboto-Regular'),
+                      style: getCustomFont(Color(hexStringToHexInt(isFill ? '#ffffff' : '#D67154')), 14, 'Poppins-Bold'),
                       textAlign: TextAlign.center,
                     ),
                   ),

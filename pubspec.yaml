@@ -24,6 +24,22 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
 
+  fonts:
+    - family: PlayfairDisplay-Regular
+      fonts:
+        - asset: font/PlayfairDisplay-Regular.ttf
+
+    - family: PlayfairDisplay-Bold
+      fonts:
+        - asset: fonts/PlayfairDisplay-Bold.ttf
+
+    - family: Poppins-Regular
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
+
+    - family: Poppins-Regular
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
