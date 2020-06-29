@@ -68,7 +68,7 @@ double setWidth(double width){
 Widget appBar({String title, bool hasBack = true, BuildContext context}){
 
   return AppBar(
-    title: Text(title, style: TextStyle(color: Colors.white)),
+    title: Text(title, style: getCustomFont(Colors.white, 18, 'PlayfairDisplay-Bold')),
     centerTitle: true,
     automaticallyImplyLeading: hasBack,
     leading: hasBack ? new IconButton(
