@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter_screenutil:
   flutter_spinkit:
+  lottie_flutter:
   flutter:
     sdk: flutter
 
@@ -23,6 +24,11 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+
+  assets:
+    - assets/
+    - assets/animations/
+    - assets/images/
 
   fonts:
     - family: PlayfairDisplay-Regular
