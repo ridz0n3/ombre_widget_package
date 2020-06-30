@@ -22,8 +22,8 @@ class ProcessIndicator extends StatelessWidget{
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(setHeight(50)),
                   gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                     stops: [0.0, 0.17, 0.47, 0.69, 1.0],
                     colors: [
                       Color(hexStringToHexInt('#F89825')),
@@ -58,8 +58,19 @@ class ProcessIndicator extends StatelessWidget{
               height: setHeight(26),
               width: setHeight(26),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(setHeight(50)),
-                  color: Color(hexStringToHexInt('#E5333B'))
+                borderRadius: BorderRadius.circular(setHeight(50)),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.0, 0.17, 0.47, 0.69, 1.0],
+                  colors: [
+                    Color(hexStringToHexInt('#F89825')),
+                    Color(hexStringToHexInt('#F26322')),
+                    Color(hexStringToHexInt('#E5333B')),
+                    Color(hexStringToHexInt('#C81D5E')),
+                    Color(hexStringToHexInt('#A91E5E')),
+                  ],
+                ),
               ),
               child: Center(
                 child: Text(
