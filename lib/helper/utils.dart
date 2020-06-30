@@ -12,6 +12,8 @@ init(BuildContext context){
 
 String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
+bool isDigit(String s, int idx) => "0".compareTo(s[idx]) <= 0 && "9".compareTo(s[idx]) >= 0;
+
 TextStyle getCustomFont(Color color, double fontSize, String fontName, { TextDecoration decoration = TextDecoration.none}) {
   return new TextStyle(
       decoration: decoration,
