@@ -86,7 +86,6 @@ class PasswordTextField extends StatelessWidget{
                         },
                         child: Container(
                           width: ScreenUtil().setHeight(48),
-                          height: ScreenUtil().setHeight(48),
                           child: Icon(
                             !isObscurePasswordText ? Icons.visibility_off : Icons.visibility,
                             size: ScreenUtil().setWidth(20),
