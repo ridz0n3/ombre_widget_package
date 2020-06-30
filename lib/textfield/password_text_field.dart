@@ -79,13 +79,11 @@ class PasswordTextField extends StatelessWidget{
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: CupertinoButton(
-                        minSize: ScreenUtil().setHeight(48),
                         padding: const EdgeInsets.all(0.0),
                         onPressed: (){
                           BlocProvider.of<PasswordBloc>(context)..add(ShowHidePassword(isObscureText: !isObscurePasswordText));
                         },
                         child: Container(
-                          width: ScreenUtil().setHeight(48),
                           child: Icon(
                             !isObscurePasswordText ? Icons.visibility_off : Icons.visibility,
                             size: ScreenUtil().setWidth(20),
