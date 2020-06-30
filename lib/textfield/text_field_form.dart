@@ -52,17 +52,23 @@ class TextFieldForm extends StatelessWidget{
             borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
             border: isError ? Border.all(width: setHeight(1), color: Color(hexStringToHexInt('#E5333B'))) : null,
           ),
-          child: TextFormField(
-            decoration: inputDecoration(placeholder),
-            controller: textController,
-            style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
-            focusNode: focusNode,
-            keyboardType: keyboardType,
-            textInputAction: textInputAction,
-            onFieldSubmitted: onFieldSubmitted,
-            onTap: onTap,
-            onChanged: onChanged,
-            maxLength: maxLength,
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: TextFormField(
+                  decoration: inputDecoration(placeholder),
+                  controller: textController,
+                  style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+                  focusNode: focusNode,
+                  keyboardType: keyboardType,
+                  textInputAction: textInputAction,
+                  onFieldSubmitted: onFieldSubmitted,
+                  onTap: onTap,
+                  onChanged: onChanged,
+                  maxLength: maxLength,
+                ),
+              ),
+            ],
           ),
         ),
         Padding(
