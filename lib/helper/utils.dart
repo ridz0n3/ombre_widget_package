@@ -86,7 +86,7 @@ Widget appBar({String title, bool hasBack = true, BuildContext context}){
 InputDecoration inputDecoration(String placeholder){
   return InputDecoration(
     labelText: '$placeholder',
-    labelStyle: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 16, 'Poppins-Regular'),
+    labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 16, 'Poppins-Regular'),
     hasFloatingPlaceholder: false,
     enabledBorder: const OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.transparent, width: 0.0),
