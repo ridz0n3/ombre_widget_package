@@ -11,6 +11,8 @@ dependencies:
   flutter_screenutil:
   flutter_spinkit:
   lottie_flutter:
+  flutter_bloc:
+  equatable:
   flutter:
     sdk: flutter
 
