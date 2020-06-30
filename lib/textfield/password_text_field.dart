@@ -55,15 +55,15 @@ class PasswordTextField extends StatelessWidget{
               ),
               SizedBox(height: setHeight(8),),
               Container(
+                height: setHeight(61),
                 decoration: BoxDecoration(
                   color: Color(hexStringToHexInt('#4D574242')),
                   borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
                   border: isError ? Border.all(width: setHeight(1), color: Color(hexStringToHexInt('#E5333B'))) : null,
                 ),
-                child: Stack(
+                child: Row(
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(right: ScreenUtil().setWidth(30)),
+                    Expanded(
                       child: TextFormField(
                         decoration: inputDecoration(placeholder),
                         obscureText: isObscurePasswordText,
@@ -76,18 +76,23 @@ class PasswordTextField extends StatelessWidget{
                         onFieldSubmitted: onFieldSubmitted,
                       ),
                     ),
-                    Align(
-                      alignment: AlignmentDirectional.center,
-                      child: CupertinoButton(
-                        padding: const EdgeInsets.all(0.0),
-                        onPressed: (){
-                          BlocProvider.of<PasswordBloc>(context)..add(ShowHidePassword(isObscureText: !isObscurePasswordText));
-                        },
-                        child: Container(
-                          child: Icon(
-                            !isObscurePasswordText ? Icons.visibility_off : Icons.visibility,
-                            size: ScreenUtil().setWidth(20),
-                            color: Color(hexStringToHexInt('#FFFCF2')),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          right: setWidth(28)
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: CupertinoButton(
+                          padding: const EdgeInsets.all(0.0),
+                          onPressed: (){
+                            BlocProvider.of<PasswordBloc>(context)..add(ShowHidePassword(isObscureText: !isObscurePasswordText));
+                          },
+                          child: Container(
+                            child: Icon(
+                              !isObscurePasswordText ? Icons.visibility_off : Icons.visibility,
+                              size: ScreenUtil().setWidth(20),
+                              color: Color(hexStringToHexInt('#FFFCF2')),
+                            ),
                           ),
                         ),
                       ),
