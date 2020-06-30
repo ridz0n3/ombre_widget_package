@@ -77,7 +77,7 @@ class PasswordTextField extends StatelessWidget{
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional.centerEnd,
+                      alignment: AlignmentDirectional.center,
                       child: CupertinoButton(
                         padding: const EdgeInsets.all(0.0),
                         onPressed: (){
