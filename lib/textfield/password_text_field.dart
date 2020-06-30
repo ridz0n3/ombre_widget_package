@@ -46,11 +46,14 @@ class PasswordTextField extends StatelessWidget{
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: Text(
-                  labelText,
-                  style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+              Container(
+                height: setHeight(27),
+                child: Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Text(
+                    labelText,
+                    style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+                  ),
                 ),
               ),
               SizedBox(height: setHeight(8),),
@@ -100,18 +103,21 @@ class PasswordTextField extends StatelessWidget{
                   ],
                 ),
               ),
-              Padding(
+              infoText != '' ? Padding(
                 padding: EdgeInsets.only(
                   top: setHeight(8),
                 ),
-                child: Align(
-                  alignment: AlignmentDirectional.topStart,
-                  child: NormalText(
-                    text: infoText,
-                    colorHex: isError ? '#E5333B' : '#FFFCF2',
+                child: Container(
+                  height: setHeight(21),
+                  child: Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: NormalText(
+                      text: infoText,
+                      colorHex: isError ? '#E5333B' : '#FFFCF2',
+                    ),
                   ),
                 ),
-              ),
+              ) : Container(),
             ],
           );
         },
