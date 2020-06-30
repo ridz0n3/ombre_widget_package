@@ -74,7 +74,7 @@ class TextFieldForm extends StatelessWidget{
             ],
           ),
         ),
-        Padding(
+        infoText != '' ? Padding(
           padding: EdgeInsets.only(
             top: setHeight(8),
           ),
@@ -88,7 +88,7 @@ class TextFieldForm extends StatelessWidget{
               ),
             ),
           ),
-        ),
+        ) : Container(),
       ],
     );
   }
