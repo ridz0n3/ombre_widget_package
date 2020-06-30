@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ombre_widget_package/header/normal_text.dart';
 import 'package:ombre_widget_package/helper/utils.dart';
 import 'package:ombre_widget_package/textfield/password_bloc/password_bloc.dart';
 
@@ -9,6 +10,8 @@ class PasswordTextField extends StatelessWidget{
 
   final String labelText;
   final String placeholder;
+  String infoText;
+  bool isError;
   TextInputAction textInputAction;
   final TextEditingController textController;
   final FocusNode focusNode;
@@ -23,6 +26,8 @@ class PasswordTextField extends StatelessWidget{
     this.onFieldSubmitted,
     this.onChanged,
     this.textInputAction = TextInputAction.next,
+    this.infoText = '',
+    this.isError = false,
   });
 
   bool isObscurePasswordText = true;
@@ -45,15 +50,15 @@ class PasswordTextField extends StatelessWidget{
                 alignment: AlignmentDirectional.centerStart,
                 child: Text(
                   labelText,
-                  style: getCustomFont(Color(hexStringToHexInt('#373A4D')), 12, 'Roboto-Regular'),
+                  style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
                 ),
               ),
-              SizedBox(height: ScreenUtil().setHeight(4),),
+              SizedBox(height: setHeight(8),),
               Container(
-                height: ScreenUtil().setHeight(48),
                 decoration: BoxDecoration(
-                  color: Color(hexStringToHexInt('#F5F5FA')),
-                  borderRadius: BorderRadius.all(Radius.circular(ScreenUtil().setHeight(2))),
+                  color: Color(hexStringToHexInt('#4D574242')),
+                  borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+                  border: isError ? Border.all(width: setHeight(1), color: Color(hexStringToHexInt('#E5333B'))) : null,
                 ),
                 child: Stack(
                   children: <Widget>[
@@ -63,7 +68,7 @@ class PasswordTextField extends StatelessWidget{
                         decoration: inputDecoration(placeholder),
                         obscureText: isObscurePasswordText,
                         controller: textController,
-                        style: getCustomFont(Colors.black, 14, 'Roboto-Regular'),
+                        style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
                         focusNode: focusNode,
                         keyboardType: TextInputType.text,
                         textInputAction: textInputAction,
@@ -85,12 +90,24 @@ class PasswordTextField extends StatelessWidget{
                           child: Icon(
                             !isObscurePasswordText ? Icons.visibility_off : Icons.visibility,
                             size: ScreenUtil().setWidth(20),
-                            color: Colors.black,
+                            color: Color(hexStringToHexInt('#FFFCF2')),
                           ),
                         ),
                       ),
                     ),
                   ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: setHeight(8),
+                ),
+                child: Align(
+                  alignment: AlignmentDirectional.topStart,
+                  child: NormalText(
+                    text: infoText,
+                    colorHex: isError ? '#E5333B' : '#FFFCF2',
+                  ),
                 ),
               ),
             ],
