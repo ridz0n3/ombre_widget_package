@@ -7,7 +7,8 @@ class UnderlineButton extends StatelessWidget{
   final String title;
   final double width;
   final VoidCallback onPressed;
-  UnderlineButton({this.title, this.width, this.onPressed});
+  double fontSize;
+  UnderlineButton({this.title, this.width, this.onPressed, this.fontSize = 14});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class UnderlineButton extends StatelessWidget{
             Container(
               child: Text(
                 title,
-                style: getCustomFont(Color(hexStringToHexInt('#FFFFFF')), 14, 'Poppins-Bold'),
+                style: getCustomFont(Color(hexStringToHexInt('#FFFFFF')), fontSize, 'Poppins-Bold'),
               ),
             ),
             SizedBox(height: ScreenUtil().setHeight(5),),
