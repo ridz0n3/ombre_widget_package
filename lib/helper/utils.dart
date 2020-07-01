@@ -106,3 +106,29 @@ InputDecoration inputDecoration(String placeholder){
     ),
   );
 }
+
+InputDecoration biometricInputDecoration(String placeholder){
+  return InputDecoration(
+    labelText: '$placeholder',
+    labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 14, 'Poppins-Regular'),
+    hasFloatingPlaceholder: false,
+    enabledBorder: const OutlineInputBorder(
+      borderSide: const BorderSide(color: Colors.transparent, width: 0.0),
+    ),
+    contentPadding: EdgeInsets.only(
+      top: setHeight(17),
+      bottom: setHeight(17),
+      left: setWidth(28),
+      right: setWidth(28),
+    ),
+    counterText: "",
+    focusedBorder:OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.transparent, width: 0.0),
+      borderRadius: BorderRadius.circular(5.0),
+    ),
+    alignLabelWithHint: true,
+    hintText: '0',
+    suffixText: '$placeholder',
+    suffixStyle: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Bold'),
+  );
+}
