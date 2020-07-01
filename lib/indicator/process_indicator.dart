@@ -4,7 +4,7 @@ import 'package:ombre_widget_package/helper/utils.dart';
 class ProcessIndicator extends StatelessWidget{
   final List<bool> isSelectIndicator;
   double top;
-  ProcessIndicator({this.isSelectIndicator, this.top = 59});
+  ProcessIndicator({this.isSelectIndicator, this.top = 24});
 
   @override
   Widget build(BuildContext context) {
