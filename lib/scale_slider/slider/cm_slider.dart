@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ombre/helpers/scale_slider/model/measurement_line.dart';
+import 'package:ombre_widget_package/scale_slider/model/measurement_line.dart';
 import 'package:ombre_widget_package/helper/utils.dart';
 
 typedef void ScaleChangedCallback(String scalePoints);

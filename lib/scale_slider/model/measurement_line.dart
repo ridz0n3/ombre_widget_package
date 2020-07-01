@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class MeasurementLine {
   String value;
-  MeasureLine type;
+  Line type;
 
   MeasurementLine({this.value, @required this.type});
 }
 
-enum MeasureLine {
+enum Line {
   big,
   medium,
   small,
 }
 
-enum MeasureType {
+enum Type {
   cm,
   ft,
   kg,
