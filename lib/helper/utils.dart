@@ -118,8 +118,8 @@ InputDecoration biometricInputDecoration(String placeholder){
     contentPadding: EdgeInsets.only(
       top: setHeight(17),
       bottom: setHeight(17),
-      left: setWidth(28),
-      right: setWidth(28),
+      left: setWidth(placeholder == 'in' ? 0 : 28),
+      right: setWidth(placeholder == 'ft' ? 5 :28),
     ),
     counterText: "",
     focusedBorder:OutlineInputBorder(
