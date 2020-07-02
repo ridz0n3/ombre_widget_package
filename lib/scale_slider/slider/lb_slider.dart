@@ -208,7 +208,7 @@ class _LbSliderState extends State<LbSlider> with TickerProviderStateMixin{
                               controller: scaleController,
                               style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
                               focusNode: _focusNodes,
-                              keyboardType: TextInputType.numberWithOptions(decimal: true),
+                              keyboardType: TextInputType.numberWithOptions(decimal: true, signed: true),
                               textInputAction: TextInputAction.done,
                               onFieldSubmitted: (value){
 

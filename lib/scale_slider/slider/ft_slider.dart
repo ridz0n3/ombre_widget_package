@@ -233,7 +233,7 @@ class _FtSliderState extends State<FtSlider> with TickerProviderStateMixin{
                               controller: scaleFtController,
                               style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
                               focusNode: _focusFtNodes,
-                              keyboardType: TextInputType.numberWithOptions(decimal: true),
+                              keyboardType: TextInputType.numberWithOptions(decimal: true, signed: true),
                               textInputAction: TextInputAction.done,
                               onFieldSubmitted: (value){
 
