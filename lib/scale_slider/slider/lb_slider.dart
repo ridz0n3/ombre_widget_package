@@ -185,7 +185,7 @@ class _LbSliderState extends State<LbSlider> with TickerProviderStateMixin{
               ),
               child: Container(
                 height: setHeight(opacity == 1 ? 0 : 60),
-                width: setWidth(111),
+                width: setWidth(121),
                 decoration: BoxDecoration(
                   color: Color(hexStringToHexInt('#4D574242')),
                   borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
