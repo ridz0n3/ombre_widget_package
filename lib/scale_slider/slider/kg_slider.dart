@@ -202,7 +202,7 @@ class _KgSliderState extends State<KgSlider> with TickerProviderStateMixin{
                           Expanded(
                             child: TextFormField(
                               textAlign: TextAlign.center,
-                              decoration: biometricInputDecoration('cm'),
+                              decoration: biometricInputDecoration('kg'),
                               controller: scaleController,
                               style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
                               focusNode: _focusNodes,

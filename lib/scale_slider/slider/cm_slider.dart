@@ -248,7 +248,7 @@ class _CmSliderState extends State<CmSlider> with TickerProviderStateMixin{
                                 Pattern pattern = r'^(?:0|[1-9][0-9]*)\.[0-9]+$';
 
                                 double moveToFeet = double.tryParse(value) ?? 0;
-                                print(moveToFeet);
+                                print('val - $moveToFeet');
                                 final checkNumber = RegExp(pattern);
                                 if (checkNumber.hasMatch(value)) {
                                   double moveToFeet = double.tryParse(value) ?? 0;
