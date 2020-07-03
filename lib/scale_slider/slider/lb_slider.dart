@@ -168,7 +168,7 @@ class _LbSliderState extends State<LbSlider> with TickerProviderStateMixin{
               color: Colors.transparent,
               child: Center(
                 child: Text(
-                  '${scaleController.text} kg',
+                  '${scaleController.text} lb',
                   style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 11, 'Poppins-Bold'),
                 ),
               ),
