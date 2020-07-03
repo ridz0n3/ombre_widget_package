@@ -204,7 +204,7 @@ class _LbSliderState extends State<LbSlider> with TickerProviderStateMixin{
                           Expanded(
                             child: TextFormField(
                               textAlign: TextAlign.center,
-                              decoration: biometricInputDecoration('cm'),
+                              decoration: biometricInputDecoration('lb'),
                               controller: scaleController,
                               style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
                               focusNode: _focusNodes,
