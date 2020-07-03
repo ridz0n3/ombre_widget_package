@@ -237,9 +237,7 @@ class _FtSliderState extends State<FtSlider> with TickerProviderStateMixin{
                               textInputAction: TextInputAction.done,
                               onFieldSubmitted: (value){
 
-                                Pattern pattern = r'^(?:0|[1-9][0-9]*)+$';
-                                final checkNumber = RegExp(pattern);
-                                if (checkNumber.hasMatch(value)) {
+                                if (double.tryParse(value) != null) {
                                   ftVal = value;
                                   FocusScope.of(context).requestFocus(_focusInNodes);
                                   setState(() {});
@@ -261,9 +259,7 @@ class _FtSliderState extends State<FtSlider> with TickerProviderStateMixin{
                               textInputAction: TextInputAction.done,
                               onFieldSubmitted: (value){
 
-                                Pattern pattern = r'^(?:0|[1-9][0-9]*)+$';
-                                final checkNumber = RegExp(pattern);
-                                if (checkNumber.hasMatch(value)) {
+                                if (double.tryParse(value) != null) {
                                   double feet = double.tryParse(ftVal) ?? 0;
                                   double inch = double.tryParse(value) ?? 0;
 

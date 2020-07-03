@@ -244,12 +244,8 @@ class _CmSliderState extends State<CmSlider> with TickerProviderStateMixin{
                               keyboardType: TextInputType.numberWithOptions(decimal: true, signed: true),
                               textInputAction: TextInputAction.done,
                               onFieldSubmitted: (value){
-                                
-                                Pattern pattern = r'^(?:0|[1-9][0-9]*)\.[0-9]+$';
 
-                                print('val - ${double.tryParse(value)}');
-                                final checkNumber = RegExp(pattern);
-                                if (checkNumber.hasMatch(value)) {
+                                if (double.tryParse(value) != null) {
                                   double moveToFeet = double.tryParse(value) ?? 0;
                                   double moveToPixel = moveToFeet / 0.1 * ScreenUtil().setWidth(1) + 1;
                                   textFieldChange = true;

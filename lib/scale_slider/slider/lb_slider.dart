@@ -212,9 +212,7 @@ class _LbSliderState extends State<LbSlider> with TickerProviderStateMixin{
                               textInputAction: TextInputAction.done,
                               onFieldSubmitted: (value){
 
-                                Pattern pattern = r'^(?:0|[1-9][0-9]*)\.[0-9]+$';
-                                final checkNumber = RegExp(pattern);
-                                if (checkNumber.hasMatch(value)) {
+                                if (double.tryParse(value) != null) {
                                   double moveToFeet = double.tryParse(value) ?? 0;
                                   double moveToPixel = moveToFeet / 0.1 * ScreenUtil().setWidth(9) + 1; //scale points = measurement unit * 20.
 
