@@ -18,7 +18,7 @@ class ProcessIndicator extends StatelessWidget{
           indicator.add(
             Expanded(
               child: Container(
-                height: setHeight(3),
+                height: setHeight(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(setHeight(50)),
                   gradient: LinearGradient(
@@ -41,7 +41,7 @@ class ProcessIndicator extends StatelessWidget{
           indicator.add(
             Expanded(
               child: Container(
-                height: setHeight(3),
+                height: setHeight(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(setHeight(50)),
                   color: Color(hexStringToHexInt('#4DFFFCF2')),
