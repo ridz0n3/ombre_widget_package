@@ -246,9 +246,11 @@ class _CmSliderState extends State<CmSlider> with TickerProviderStateMixin{
                               onFieldSubmitted: (value){
                                 
                                 Pattern pattern = r'^(?:0|[1-9][0-9]*)\.[0-9]+$';
+
+                                double moveToFeet = double.tryParse(value) ?? 0;
+                                print(moveToFeet);
                                 final checkNumber = RegExp(pattern);
                                 if (checkNumber.hasMatch(value)) {
-                                  print('in');
                                   double moveToFeet = double.tryParse(value) ?? 0;
                                   double moveToPixel = moveToFeet / 0.1 * ScreenUtil().setWidth(1) + 1;
                                   textFieldChange = true;
