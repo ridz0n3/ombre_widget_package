@@ -108,12 +108,10 @@ class PasswordTextField extends StatelessWidget{
                   top: setHeight(8),
                 ),
                 child: Container(
-                  child: Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: NormalText(
-                      text: infoText,
-                      colorHex: isError ? '#E5333B' : '#FFFCF2',
-                    ),
+                  child: NormalText(
+                    text: infoText,
+                    colorHex: isError ? '#E5333B' : '#FFFCF2',
+                    align: AlignmentDirectional.centerStart,
                   ),
                 ),
               ) : Container(),

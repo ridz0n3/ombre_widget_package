@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ombre_widget_package/header/normal_text.dart';
 import 'package:ombre_widget_package/helper/utils.dart';
 
-class TextFieldForm extends StatelessWidget{
+class DateFieldForm extends StatelessWidget{
 
   final String labelText;
   final String placeholder;
@@ -18,7 +18,7 @@ class TextFieldForm extends StatelessWidget{
   final GestureTapCallback onTap;
   final ValueChanged<String> onChanged;
 
-  TextFieldForm({
+  DateFieldForm({
     this.labelText,
     this.placeholder,
     this.textController,
@@ -69,6 +69,25 @@ class TextFieldForm extends StatelessWidget{
                   onTap: onTap,
                   onChanged: onChanged,
                   maxLength: maxLength,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    right: setWidth(28)
+                ),
+                child: Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: CupertinoButton(
+                    padding: const EdgeInsets.all(0.0),
+                    onPressed: onTap,
+                    child: Container(
+                      child: Icon(
+                        Icons.calendar_today,
+                        size: setWidth(20),
+                        color: Color(hexStringToHexInt('#FFFCF2')),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
