@@ -15,7 +15,7 @@ class GradientBorderButton extends StatelessWidget{
       child: Container(
         decoration: BoxDecoration(
           color: isSelected ? null : Color(hexStringToHexInt('#040303')),
-          borderRadius: BorderRadius.circular(setHeight(25)),
+          borderRadius: BorderRadius.circular(setHeight(20)),
           gradient: isSelected ? LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -32,7 +32,7 @@ class GradientBorderButton extends StatelessWidget{
         child: Padding(
           padding: EdgeInsets.all(setHeight(1)),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(setHeight(25)),
+            borderRadius: BorderRadius.circular(setHeight(20)),
             child: child,
           ),
         ),
