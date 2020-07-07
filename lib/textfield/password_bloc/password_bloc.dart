@@ -36,8 +36,7 @@ class ShowHidePassword extends PasswordEvent{
 }
 
 class PasswordBloc extends Bloc<PasswordEvent, PasswordState>{
-  @override
-  PasswordState get initialState => UninitializedPassword();
+  PasswordBloc() : super(UninitializedPassword());
 
   @override
   Stream<PasswordState> mapEventToState(PasswordEvent event) async*{
