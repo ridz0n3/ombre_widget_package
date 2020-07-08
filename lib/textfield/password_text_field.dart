@@ -68,6 +68,7 @@ class PasswordTextField extends StatelessWidget{
                   children: <Widget>[
                     Expanded(
                       child: TextFormField(
+                        key: Key('passwordKey'),
                         decoration: inputDecoration(placeholder),
                         obscureText: isObscurePasswordText,
                         controller: textController,

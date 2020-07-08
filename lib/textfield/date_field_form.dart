@@ -59,6 +59,7 @@ class DateFieldForm extends StatelessWidget{
             children: <Widget>[
               Expanded(
                 child: TextFormField(
+                  key: Key('dobKey'),
                   decoration: inputDecoration(placeholder),
                   controller: textController,
                   style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),

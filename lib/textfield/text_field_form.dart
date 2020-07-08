@@ -17,6 +17,7 @@ class TextFieldForm extends StatelessWidget{
   final ValueChanged<String> onFieldSubmitted;
   final GestureTapCallback onTap;
   final ValueChanged<String> onChanged;
+  final String fieldKey;
 
   TextFieldForm({
     this.labelText,
@@ -31,6 +32,7 @@ class TextFieldForm extends StatelessWidget{
     this.maxLength = 100,
     this.infoText = '',
     this.isError = false,
+    this.fieldKey,
   });
 
   @override
@@ -59,6 +61,7 @@ class TextFieldForm extends StatelessWidget{
             children: <Widget>[
               Expanded(
                 child: TextFormField(
+                  key: Key(fieldKey),
                   decoration: inputDecoration(placeholder),
                   controller: textController,
                   style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
