@@ -8,12 +8,14 @@ class NormalText extends StatelessWidget{
   String colorHex;
   AlignmentDirectional align;
   String fontFamily;
+  TextAlign textAlign;
   NormalText({
     this.text,
     this.fontSize = 11,
     this.colorHex = '#FFFCF2',
     this.align = AlignmentDirectional.centerStart,
-    this.fontFamily = 'Poppins-Regular'
+    this.fontFamily = 'Poppins-Regular',
+    this.textAlign = TextAlign.left,
   });
 
   @override
@@ -22,6 +24,7 @@ class NormalText extends StatelessWidget{
       alignment: align,
       child: Text(
         text,
+        textAlign: textAlign,
         style: getCustomFont(Color(hexStringToHexInt(colorHex)), fontSize, fontFamily),
       ),
     );

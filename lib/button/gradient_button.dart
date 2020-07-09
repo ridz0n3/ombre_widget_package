@@ -4,9 +4,10 @@ import 'package:ombre_widget_package/helper/utils.dart';
 class GradientBorderButton extends StatelessWidget{
 
   bool isSelected;
+  bool hasRadius;
   final VoidCallback onPressed;
   final Widget child;
-  GradientBorderButton({this.onPressed, this.child, this.isSelected = false});
+  GradientBorderButton({this.onPressed, this.child, this.isSelected = false, this.hasRadius = true});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class GradientBorderButton extends StatelessWidget{
       child: Container(
         decoration: BoxDecoration(
           color: isSelected ? null : Color(hexStringToHexInt('#040303')),
-          borderRadius: BorderRadius.circular(setHeight(20)),
+          borderRadius: hasRadius ? BorderRadius.circular(setHeight(20)) : null,
           gradient: isSelected ? LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -32,7 +33,7 @@ class GradientBorderButton extends StatelessWidget{
         child: Padding(
           padding: EdgeInsets.all(setHeight(1)),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(setHeight(20)),
+            borderRadius: BorderRadius.circular(setHeight(hasRadius ? 20 : 0)),
             child: child,
           ),
         ),

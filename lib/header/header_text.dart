@@ -5,7 +5,8 @@ import 'package:ombre_widget_package/helper/utils.dart';
 class HeaderText extends StatelessWidget{
   final String title;
   double top;
-  HeaderText({this.title, this.top = 32});
+  double fontSize;
+  HeaderText({this.title, this.top = 32, this.fontSize = 29});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class HeaderText extends StatelessWidget{
             child: Text(
               '$title',
               textAlign: TextAlign.center,
-              style: getCustomFont(Color(hexStringToHexInt('#FDFFFC')), 29, 'PlayfairDisplay-Bold'),
+              style: getCustomFont(Color(hexStringToHexInt('#FDFFFC')), fontSize, 'PlayfairDisplay-Bold'),
             ),
           ),
         ),
