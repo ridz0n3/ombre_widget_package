@@ -18,6 +18,7 @@ class TextFieldForm extends StatelessWidget{
   final GestureTapCallback onTap;
   final ValueChanged<String> onChanged;
   final String fieldKey;
+  final FocusNode nextFocusNode;
 
   TextFieldForm({
     this.labelText,
@@ -33,6 +34,7 @@ class TextFieldForm extends StatelessWidget{
     this.infoText = '',
     this.isError = false,
     this.fieldKey,
+    this.nextFocusNode,
   });
 
   @override
@@ -50,46 +52,20 @@ class TextFieldForm extends StatelessWidget{
           ),
         ),
         SizedBox(height: setHeight(8),),
-        Container(
-          height: setHeight(61),
-          decoration: BoxDecoration(
-            color: Color(hexStringToHexInt('#4D574242')),
-            borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
-            border: isError ? Border.all(width: setHeight(1), color: Color(hexStringToHexInt('#E5333B'))) : null,
-          ),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: TextFormField(
-                  key: Key(fieldKey),
-                  decoration: inputDecoration(placeholder),
-                  controller: textController,
-                  style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
-                  focusNode: focusNode,
-                  keyboardType: keyboardType,
-                  textInputAction: textInputAction,
-                  onFieldSubmitted: onFieldSubmitted,
-                  onTap: onTap,
-                  onChanged: onChanged,
-                  maxLength: maxLength,
-                ),
-              ),
-            ],
-          ),
+        TextFormField(
+          key: Key(fieldKey),
+          decoration: inputFocusDecoration(placeholder, infoText, isError),
+          controller: textController,
+          style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+          focusNode: focusNode,
+          keyboardType: keyboardType,
+          textInputAction: textInputAction,
+          onFieldSubmitted: (value){
+            FocusScope.of(context).requestFocus(nextFocusNode);
+          },
+          onChanged: onChanged,
+          maxLength: maxLength,
         ),
-        infoText != '' ? Padding(
-          padding: EdgeInsets.only(
-            top: setHeight(8),
-          ),
-          child: Container(
-            height: setHeight(21),
-            child: NormalText(
-              text: infoText,
-              colorHex: isError ? '#E5333B' : '#FFFCF2',
-              align: AlignmentDirectional.centerStart,
-            ),
-          ),
-        ) : Container(),
       ],
     );
   }

@@ -57,65 +57,20 @@ class PasswordTextField extends StatelessWidget{
                 ),
               ),
               SizedBox(height: setHeight(8),),
-              Container(
-                height: setHeight(61),
-                decoration: BoxDecoration(
-                  color: Color(hexStringToHexInt('#4D574242')),
-                  borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
-                  border: isError ? Border.all(width: setHeight(1), color: Color(hexStringToHexInt('#E5333B'))) : null,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: TextFormField(
-                        key: Key('passwordKey'),
-                        decoration: inputDecoration(placeholder),
-                        obscureText: isObscurePasswordText,
-                        controller: textController,
-                        style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
-                        focusNode: focusNode,
-                        keyboardType: TextInputType.text,
-                        textInputAction: textInputAction,
-                        onChanged: onChanged,
-                        onFieldSubmitted: onFieldSubmitted,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          right: setWidth(28)
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: CupertinoButton(
-                          padding: const EdgeInsets.all(0.0),
-                          onPressed: (){
-                            BlocProvider.of<PasswordBloc>(context)..add(ShowHidePassword(isObscureText: !isObscurePasswordText));
-                          },
-                          child: Container(
-                            child: Icon(
-                              !isObscurePasswordText ? Icons.visibility_off : Icons.visibility,
-                              size: ScreenUtil().setWidth(20),
-                              color: Color(hexStringToHexInt('#FFFCF2')),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              TextFormField(
+                key: Key('passwordKey'),
+                decoration: inputFocusDecoration(placeholder, infoText, isError, isObscure: isObscurePasswordText, onPressed: (){
+                  BlocProvider.of<PasswordBloc>(context)..add(ShowHidePassword(isObscureText: !isObscurePasswordText));
+                }),
+                obscureText: isObscurePasswordText,
+                controller: textController,
+                style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+                focusNode: focusNode,
+                keyboardType: TextInputType.text,
+                textInputAction: textInputAction,
+                onChanged: onChanged,
+                onFieldSubmitted: onFieldSubmitted,
               ),
-              infoText != '' ? Padding(
-                padding: EdgeInsets.only(
-                  top: setHeight(8),
-                ),
-                child: Container(
-                  child: NormalText(
-                    text: infoText,
-                    colorHex: isError ? '#E5333B' : '#FFFCF2',
-                    align: AlignmentDirectional.centerStart,
-                  ),
-                ),
-              ) : Container(),
             ],
           );
         },

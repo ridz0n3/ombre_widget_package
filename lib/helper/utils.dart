@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:ombre_widget_package/header/normal_text.dart';
 
 
 init(BuildContext context){
@@ -103,6 +104,59 @@ InputDecoration inputDecoration(String placeholder){
     focusedBorder:OutlineInputBorder(
       borderSide: BorderSide(color: Colors.transparent, width: 0.0),
       borderRadius: BorderRadius.circular(5.0),
+    ),
+  );
+}
+
+InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {bool isObscure, VoidCallback onPressed}){
+  return InputDecoration(
+    labelText: placeholder,
+    labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 14, 'Poppins-Regular'),
+    hasFloatingPlaceholder: false,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+    ),
+    counter: infoText != '' ? Padding(
+      padding: EdgeInsets.only(
+        top: setHeight(8),
+        left: setHeight(24),
+        right: setHeight(0),
+      ),
+      child: Container(
+        child: NormalText(
+          text: infoText,
+          colorHex: isError ? '#E5333B' : '#FFFCF2',
+          align: AlignmentDirectional.centerStart,
+        ),
+      ),
+    ) : Container(),
+    contentPadding: EdgeInsets.only(
+      top: setHeight(21.5),
+      bottom: setHeight(21.5),
+      left: setWidth(30),
+    ),
+    fillColor: Color(hexStringToHexInt('#4D574242')),
+    filled: true,
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Color(hexStringToHexInt('#FFFCF2')), width: setWidth(1)),
+      borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: isError ? Color(hexStringToHexInt('#E5333B')) : Colors.transparent, width: 1.0),
+      borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+    ),
+    suffixIcon: isObscure == null ? null : Padding(
+      padding: EdgeInsets.only(
+        right: setWidth(18),
+      ),
+      child: IconButton(
+        onPressed: onPressed,
+        icon: Icon(
+          !isObscure ? Icons.visibility_off : Icons.visibility,
+          size: ScreenUtil().setWidth(20),
+          color: Color(hexStringToHexInt('#FFFCF2')),
+        ),
+      ),
     ),
   );
 }
