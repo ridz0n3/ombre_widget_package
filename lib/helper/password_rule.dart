@@ -19,8 +19,8 @@ class PasswordRule extends StatelessWidget{
             border: Border.all(width: setHeight(1), color: isContain || isWarning ? Colors.transparent : Color(hexStringToHexInt('#FFFCF2'))),
             borderRadius: BorderRadius.circular(setHeight(10)),
             gradient: isContain ? LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
               stops: [0.0, 0.17, 0.47, 0.69, 1.0],
               colors: [
                 Color(hexStringToHexInt('#F89825')),

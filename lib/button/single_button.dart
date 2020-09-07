@@ -11,8 +11,10 @@ class SingleButton extends StatelessWidget{
   bool isLoading;
   bool isFill;
   String title;
+  bool hasImg;
+  String imgName;
 
-  SingleButton({this.isLoading = false, this.isFill = false, this.title, this.onPressed});
+  SingleButton({this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +49,25 @@ class SingleButton extends StatelessWidget{
                     ),
                   ),
                   child: Center(
-                    child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
-                      style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 14, 'Poppins-Bold'),
-                      textAlign: TextAlign.center,
+                    child: isLoading ? loadIndicator(isFill: isFill) : Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        hasImg ? Padding(
+                          padding: EdgeInsets.only(
+                              right: setWidth(11)
+                          ),
+                          child: Image.asset(
+                            'assets/images/$imgName.png',
+                            height: setHeight(18),
+                            width: setHeight(18),
+                          ),
+                        ) : Container(),
+                        Text(title,
+                          style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 14, 'Poppins-Bold'),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ) : UnicornOutlineButton(

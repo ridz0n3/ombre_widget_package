@@ -80,6 +80,35 @@ class SocialMediaUnicornOutlineButton extends StatelessWidget {
   }
 }
 
+class ProgressUnicornOutlineBorder extends StatelessWidget {
+  final _GradientPainter _painter;
+  final Widget _child;
+  final double _radius;
+
+  ProgressUnicornOutlineBorder({
+    @required double strokeWidth,
+    @required double radius,
+    @required Gradient gradient,
+    @required Widget child,
+    @required VoidCallback onPressed,
+  })  : this._painter = _GradientPainter(strokeWidth: strokeWidth, radius: radius, gradient: gradient),
+        this._child = child,
+        this._radius = radius;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: _painter,
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(2),
+          child: _child,
+        ),
+      ),
+    );
+  }
+}
+
 class _GradientPainter extends CustomPainter {
   final Paint _paint = Paint();
   final double radius;

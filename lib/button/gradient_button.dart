@@ -7,7 +7,8 @@ class GradientBorderButton extends StatelessWidget{
   bool hasRadius;
   final VoidCallback onPressed;
   final Widget child;
-  GradientBorderButton({this.onPressed, this.child, this.isSelected = false, this.hasRadius = true});
+  String module;
+  GradientBorderButton({this.onPressed, this.child, this.isSelected = false, this.hasRadius = true, this.module = 'gender'});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class GradientBorderButton extends StatelessWidget{
           ) : null,
         ),
         child: Padding(
-          padding: EdgeInsets.all(setHeight(1)),
+          padding: EdgeInsets.all(setHeight(isSelected ? module == 'color' ? 3 : 1 : 0)),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(setHeight(hasRadius ? 20 : 0)),
             child: child,

@@ -30,8 +30,8 @@ class SocialMediaButton extends StatelessWidget{
                   strokeWidth: 2,
                   radius: setHeight(64),
                   gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                     stops: [0.0, 0.17, 0.47, 0.69, 1.0],
                     colors: [
                       Color(hexStringToHexInt('#F89825')),

@@ -9,6 +9,7 @@ class NormalText extends StatelessWidget{
   AlignmentDirectional align;
   String fontFamily;
   TextAlign textAlign;
+  bool isStrike;
   NormalText({
     this.text,
     this.fontSize = 11,
@@ -16,6 +17,7 @@ class NormalText extends StatelessWidget{
     this.align = AlignmentDirectional.centerStart,
     this.fontFamily = 'Poppins-Regular',
     this.textAlign = TextAlign.left,
+    this.isStrike = false,
   });
 
   @override
@@ -25,7 +27,7 @@ class NormalText extends StatelessWidget{
       child: Text(
         text,
         textAlign: textAlign,
-        style: getCustomFont(Color(hexStringToHexInt(colorHex)), fontSize, fontFamily),
+        style: getCustomFont(Color(hexStringToHexInt(colorHex)), fontSize, fontFamily, decoration: isStrike ? TextDecoration.lineThrough : null),
       ),
     );
   }

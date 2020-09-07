@@ -86,7 +86,7 @@ Widget appBar({String title, bool hasBack = true, BuildContext context}){
   );
 }
 
-InputDecoration inputDecoration(String placeholder){
+InputDecoration inputDecoration(String placeholder, {double top = 17, double left = 28}){
   return InputDecoration(
     labelText: '$placeholder',
     labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 14, 'Poppins-Regular'),
@@ -95,11 +95,12 @@ InputDecoration inputDecoration(String placeholder){
       borderSide: const BorderSide(color: Colors.transparent, width: 0.0),
     ),
     contentPadding: EdgeInsets.only(
-      top: setHeight(17),
-      bottom: setHeight(17),
-      left: setWidth(28),
-      right: setWidth(28),
+      top: setHeight(top),
+      bottom: setHeight(top),
+      left: setWidth(left),
+      right: setWidth(left),
     ),
+    isDense: true,
     counterText: "",
     focusedBorder:OutlineInputBorder(
       borderSide: BorderSide(color: Colors.transparent, width: 0.0),
