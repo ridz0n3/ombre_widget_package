@@ -5,8 +5,9 @@ import 'package:ombre_widget_package/helper/utils.dart';
 class CloseButtonWidget extends StatelessWidget{
 
   String colorHex;
+  double size;
   final VoidCallback onPressed;
-  CloseButtonWidget({this.colorHex = '#FFFCF2', this.onPressed});
+  CloseButtonWidget({this.colorHex = '#FFFCF2', this.onPressed, this.size = 24});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +15,11 @@ class CloseButtonWidget extends StatelessWidget{
       padding: EdgeInsets.all(0),
       onPressed: () => onPressed != null ? onPressed : Navigator.pop(context),
       child: Container(
-        height: setHeight(24),
-        width: setHeight(24),
+        height: setHeight(size),
+        width: setHeight(size),
         child: Icon(
           CupertinoIcons.clear_thick,
-          size: setHeight(24),
+          size: setHeight(size),
           color: Color(hexStringToHexInt(colorHex)),
         ),
       ),
