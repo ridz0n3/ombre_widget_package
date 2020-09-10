@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class ScrollViews extends StatelessWidget {
 
   List<Widget> children;
-  ScrollViews({List<Widget> children}) : this.children = children;
+  ScrollController scrollController;
+  ScrollViews({List<Widget> children, ScrollController scrollController}) : this.children = children, this.scrollController = scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +12,7 @@ class ScrollViews extends StatelessWidget {
       builder:
           (BuildContext context, BoxConstraints viewportConstraints) {
         return SingleChildScrollView(
+          controller: scrollController,
           child: ConstrainedBox(
             constraints:
             BoxConstraints(minHeight: viewportConstraints.maxHeight),
