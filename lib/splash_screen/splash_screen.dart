@@ -13,14 +13,17 @@ class SplashScreen extends StatelessWidget{
           BackgroundWidget(),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                height: setHeight(130),
-                child: Lottie.asset(
-                  'assets/animations/SplashScreenMain.json',
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.center,
-                  repeat: false,
+              Center(
+                child: Container(
+                  height: setHeight(130),
+                  child: Lottie.asset(
+                    'assets/animations/SplashScreenMain.json',
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.center,
+                    repeat: false,
+                  ),
                 ),
               ),
             ],
