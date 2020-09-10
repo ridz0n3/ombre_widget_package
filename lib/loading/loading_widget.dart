@@ -10,13 +10,21 @@ class LoadingWidget extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: setHeight(height),
-      child: Lottie.asset(
-        'assets/animations/loading.json',
-        fit: BoxFit.scaleDown,
-        alignment: Alignment.center,
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Center(
+          child: Container(
+            height: setHeight(height),
+            child: Lottie.asset(
+              'assets/animations/loading.json',
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.center,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
