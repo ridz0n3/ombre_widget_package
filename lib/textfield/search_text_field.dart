@@ -30,9 +30,7 @@ class SearchTextField extends StatelessWidget{
       style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 11, 'Poppins-Regular'),
       focusNode: focusNode,
       textInputAction: TextInputAction.search,
-      onFieldSubmitted: (value){
-        FocusScope.of(context).requestFocus(new FocusNode());
-      },
+      onFieldSubmitted: onFieldSubmitted,
       onChanged: onChanged,
       onTap: onTap,
     );
