@@ -10,11 +10,11 @@ environment:
 dependencies:
   flutter_screenutil:
   flutter_spinkit:
-  lottie_flutter:
   flutter_bloc: ^5.0.1
   equatable:
   flutter:
     sdk: flutter
+  lottie: ^0.6.0
 
 
 dev_dependencies:
