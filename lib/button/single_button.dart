@@ -14,8 +14,9 @@ class SingleButton extends StatelessWidget{
   bool hasImg;
   String imgName;
   double height;
+  double fontSize;
 
-  SingleButton({this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = ''});
+  SingleButton({this.fontSize = 14, this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,7 @@ class SingleButton extends StatelessWidget{
                           ),
                         ) : Container(),
                         Text(title,
-                          style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 14, 'Poppins-Bold'),
+                          style: getCustomFont(Color(hexStringToHexInt('#ffffff')), fontSize, 'Poppins-Bold'),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -88,7 +89,7 @@ class SingleButton extends StatelessWidget{
                   ),
                   child: Center(
                     child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
-                      style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 14, 'Poppins-Bold'),
+                      style: getCustomFont(Color(hexStringToHexInt('#ffffff')), fontSize, 'Poppins-Bold'),
                       textAlign: TextAlign.center,
                     ),
                   ),
