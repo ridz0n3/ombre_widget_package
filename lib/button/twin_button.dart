@@ -85,8 +85,8 @@ class TwinButton extends StatelessWidget{
                               child: Container(
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomCenter,
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
                                       stops: [0.0, 1.0],
                                       colors: [
                                         Color(hexStringToHexInt('#F1F3F5')),

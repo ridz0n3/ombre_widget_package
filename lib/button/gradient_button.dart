@@ -19,8 +19,8 @@ class GradientBorderButton extends StatelessWidget{
           color: isSelected ? null : Color(hexStringToHexInt('#040303')),
           borderRadius: hasRadius ? BorderRadius.circular(setHeight(20)) : null,
           gradient: isSelected ? LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
             stops: [0.0, 0.17, 0.47, 0.69, 1.0],
             colors: [
               Color(hexStringToHexInt('#F89825')),
