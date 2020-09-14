@@ -13,18 +13,19 @@ class SingleButton extends StatelessWidget{
   String title;
   bool hasImg;
   String imgName;
+  double height;
 
-  SingleButton({this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = ''});
+  SingleButton({this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = ''});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(57),
+      height: ScreenUtil().setHeight(height),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(64))
+          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height))
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(64)),
+        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
         child: CupertinoButton(
             padding: const EdgeInsets.all(0.0),
             child: Stack(
@@ -33,7 +34,7 @@ class SingleButton extends StatelessWidget{
                 isFill ? Container(
                   decoration: BoxDecoration(
                     //border: onPressed == null ? Border.all(color: Color(hexStringToHexInt('#a1a1a1'))) : Border.all(color: Color(hexStringToHexInt('#D67154'))),
-                    borderRadius: BorderRadius.all(Radius.circular(ScreenUtil().setHeight(64))),
+                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
                     color: Colors.white,
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
@@ -72,7 +73,7 @@ class SingleButton extends StatelessWidget{
                   ),
                 ) : UnicornOutlineButton(
                   strokeWidth: 2,
-                  radius: ScreenUtil().setHeight(64),
+                  radius: ScreenUtil().setHeight(height),
                   gradient: LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
