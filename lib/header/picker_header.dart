@@ -6,8 +6,9 @@ import 'normal_text.dart';
 class PickerHeader extends StatelessWidget{
 
   final String title;
+  String buttonTitle;
   final VoidCallback onTap;
-  PickerHeader({this.title, this.onTap});
+  PickerHeader({this.title, this.onTap, this.buttonTitle = 'Confirm'});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class PickerHeader extends StatelessWidget{
           InkWell(
             onTap: onTap,
             child: NormalText(
-              text: 'Confirm',
+              text: buttonTitle,
               fontFamily: 'Poppins-Bold',
               fontSize: 11,
             ),
