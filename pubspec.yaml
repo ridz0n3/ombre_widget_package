@@ -12,6 +12,7 @@ dependencies:
   flutter_spinkit:
   flutter_bloc: ^5.0.1
   equatable:
+  flushbar: ^1.10.4
   flutter:
     sdk: flutter
   lottie: ^0.6.0
