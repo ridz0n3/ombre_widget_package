@@ -210,13 +210,9 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              stops: [0.0, 0.17, 0.47, 0.69, 1.0],
+              stops: [1.0],
               colors: [
-                Color(hexStringToHexInt('#F89825')),
-                Color(hexStringToHexInt('#F26322')),
-                Color(hexStringToHexInt('#E5333B')),
-                Color(hexStringToHexInt('#C81D5E')),
-                Color(hexStringToHexInt('#A91E5E')),
+                Color(hexStringToHexInt('#2F2323')),
               ],
             ),
             child: containerWidget,
