@@ -15,18 +15,19 @@ class SingleButton extends StatelessWidget{
   String imgName;
   double height;
   double fontSize;
+  String type;
 
-  SingleButton({this.fontSize = 14, this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = ''});
+  SingleButton({this.fontSize = 14, this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = '', this.type = 'web'});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(height),
+      height: ScreenUtil().setHeight(type == 'web' ? 40 : height),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height))
+          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height))
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
+        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
         child: CupertinoButton(
             padding: const EdgeInsets.all(0.0),
             child: Stack(
@@ -34,8 +35,7 @@ class SingleButton extends StatelessWidget{
               children: <Widget>[
                 isFill ? Container(
                   decoration: BoxDecoration(
-                    //border: onPressed == null ? Border.all(color: Color(hexStringToHexInt('#a1a1a1'))) : Border.all(color: Color(hexStringToHexInt('#D67154'))),
-                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
+                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
                     color: Colors.white,
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
@@ -72,7 +72,7 @@ class SingleButton extends StatelessWidget{
                       ],
                     ),
                   ),
-                ) : UnicornOutlineButton(
+                ) : type == 'mobile' ? UnicornOutlineButton(
                   strokeWidth: 2,
                   radius: ScreenUtil().setHeight(height),
                   gradient: LinearGradient(
@@ -91,6 +91,38 @@ class SingleButton extends StatelessWidget{
                     child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
                       style: getCustomFont(Color(hexStringToHexInt('#ffffff')), fontSize, 'Poppins-Bold'),
                       textAlign: TextAlign.center,
+                    ),
+                  ),
+                ) : Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
+                    color: Colors.white,
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      stops: [0.0, 0.17, 0.47, 0.69, 1.0],
+                      colors: [
+                        Color(hexStringToHexInt('#F89825')),
+                        Color(hexStringToHexInt('#F26322')),
+                        Color(hexStringToHexInt('#E5333B')),
+                        Color(hexStringToHexInt('#C81D5E')),
+                        Color(hexStringToHexInt('#A91E5E')),
+                      ],
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(setHeight(1)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
+                        color: Color(hexStringToHexInt('#040303')),
+                      ),
+                      child: Center(
+                        child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
+                          style: getCustomFont(Color(hexStringToHexInt('#ffffff')), fontSize, 'Poppins-Bold'),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
                   ),
                 ),
