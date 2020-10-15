@@ -22,12 +22,12 @@ class SingleButton extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(type == 'web' ? 40 : height),
+      height: ScreenUtil().setHeight(height),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height))
+          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height))
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
+        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
         child: CupertinoButton(
             padding: const EdgeInsets.all(0.0),
             child: Stack(
@@ -35,7 +35,7 @@ class SingleButton extends StatelessWidget{
               children: <Widget>[
                 isFill ? Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
+                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
                     color: Colors.white,
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
@@ -95,7 +95,7 @@ class SingleButton extends StatelessWidget{
                   ),
                 ) : Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
+                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
                     color: Colors.white,
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
@@ -114,7 +114,7 @@ class SingleButton extends StatelessWidget{
                     padding: EdgeInsets.all(setHeight(1)),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(type == 'web' ? 40 : height)),
+                        borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
                         color: Color(hexStringToHexInt('#040303')),
                       ),
                       child: Center(
