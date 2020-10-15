@@ -17,7 +17,7 @@ class SingleButton extends StatelessWidget{
   double fontSize;
   String type;
 
-  SingleButton({this.fontSize = 14, this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = '', this.type = 'web'});
+  SingleButton({this.fontSize = 14, this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = '', this.type = 'mobile'});
 
   @override
   Widget build(BuildContext context) {
