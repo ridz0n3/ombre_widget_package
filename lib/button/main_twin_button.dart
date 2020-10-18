@@ -44,10 +44,10 @@ class MainTwinButton extends StatelessWidget{
                           fit: StackFit.expand,
                           children: <Widget>[
                             Container(
-                              color: Color(hexStringToHexInt('#040303')),
+                              color: Color(hexStringToHexInt('#ffffff')),
                               child: Center(
                                 child: Text(backTitle.toUpperCase(),
-                                  style: getCustomFont(Color(hexStringToHexInt(canBack ? '#ffffff' : '#d2d2d2')), 14, 'Poppins-Bold'),
+                                  style: getCustomFont(Color(hexStringToHexInt(canBack ? '#040303' : '#d2d2d2')), 14, 'Poppins-Bold'),
                                   textAlign: TextAlign.center,
                                 ),
                               ),

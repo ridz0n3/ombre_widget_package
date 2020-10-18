@@ -115,11 +115,11 @@ class SingleButton extends StatelessWidget{
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
-                        color: Color(hexStringToHexInt('#040303')),
+                        color: Color(hexStringToHexInt('#ffffff')),
                       ),
                       child: Center(
                         child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
-                          style: getCustomFont(Color(hexStringToHexInt('#ffffff')), fontSize, 'Poppins-Bold'),
+                          style: getCustomFont(Color(hexStringToHexInt('#040303')), fontSize, 'Poppins-Bold'),
                           textAlign: TextAlign.center,
                         ),
                       ),
