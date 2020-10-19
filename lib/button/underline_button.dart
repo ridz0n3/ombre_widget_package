@@ -8,7 +8,8 @@ class UnderlineButton extends StatelessWidget{
   final double width;
   final VoidCallback onPressed;
   double fontSize;
-  UnderlineButton({this.title, this.width, this.onPressed, this.fontSize = 14});
+  String colorHex;
+  UnderlineButton({this.title, this.width, this.onPressed, this.fontSize = 14, this.colorHex = '#ffffff'});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class UnderlineButton extends StatelessWidget{
             Container(
               child: Text(
                 title,
-                style: getCustomFont(Color(hexStringToHexInt('#FFFFFF')), fontSize, 'Poppins-Bold'),
+                style: getCustomFont(Color(hexStringToHexInt(colorHex)), fontSize, 'Poppins-Bold'),
               ),
             ),
             SizedBox(height: ScreenUtil().setHeight(5),),
