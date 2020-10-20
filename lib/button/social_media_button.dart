@@ -9,26 +9,28 @@ class SocialMediaButton extends StatelessWidget{
   bool isLoading;
   final String title;
   final VoidCallback onPressed;
-  SocialMediaButton({this.type, this.title, this.isLoading = false, this.onPressed});
+  String platform;
+  double height;
+  SocialMediaButton({this.type, this.title, this.isLoading = false, this.onPressed, this.platform = 'mobile', this.height = 57,});
 
   @override
   Widget build(BuildContext context) {
 
     return Container(
-      height: setHeight(57),
+      height: setHeight(height),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(setHeight(64))
+          borderRadius: BorderRadius.circular(setHeight(height))
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(setHeight(64)),
+        borderRadius: BorderRadius.circular(setHeight(height)),
         child: CupertinoButton(
             padding: const EdgeInsets.all(0.0),
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
-                SocialMediaUnicornOutlineButton(
+                platform == 'mobile' ? SocialMediaUnicornOutlineButton(
                   strokeWidth: 2,
-                  radius: setHeight(64),
+                  radius: setHeight(height),
                   gradient: LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
@@ -46,7 +48,7 @@ class SocialMediaButton extends StatelessWidget{
                       left: setWidth(34.5),
                       right: setWidth(24.5),
                     ),
-                    child: Row(
+                    child: isLoading ? loadIndicator() : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -59,6 +61,53 @@ class SocialMediaButton extends StatelessWidget{
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                ) :
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(setHeight(height)),
+                    color: Colors.white,
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      stops: [0.0, 0.17, 0.47, 0.69, 1.0],
+                      colors: [
+                        Color(hexStringToHexInt('#F89825')),
+                        Color(hexStringToHexInt('#F26322')),
+                        Color(hexStringToHexInt('#E5333B')),
+                        Color(hexStringToHexInt('#C81D5E')),
+                        Color(hexStringToHexInt('#A91E5E')),
+                      ],
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(setHeight(1)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(setHeight(height)),
+                        color: Color(hexStringToHexInt('#ffffff')),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: setWidth(34.5),
+                          right: setWidth(24.5),
+                        ),
+                        child: isLoading ? loadIndicator() : Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset('assets/images/$type.png', height: setHeight(18), width: setHeight(18),),
+                            Expanded(
+                              child: Text(
+                                title,
+                                style: getCustomFont(Color(hexStringToHexInt('#040303')), 14, 'Poppins-Bold'),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
