@@ -18,20 +18,20 @@ class MainTwinButton extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: setHeight(40),
+      height: setHeight(57),
       decoration: BoxDecoration(
         //border: Border.all(color: Color(hexStringToHexInt('#D67154'))),
-        borderRadius: BorderRadius.all(Radius.circular(setHeight(40))),
+        borderRadius: BorderRadius.all(Radius.circular(setHeight(57))),
       ),
       child: Material(
         elevation: setHeight(2),
         shadowColor: Color(hexStringToHexInt('#40BB2034')),
-        borderRadius: BorderRadius.circular(setHeight(40)),
+        borderRadius: BorderRadius.circular(setHeight(57)),
         child: GradientBorderButton(
           onPressed: null,
           isSelected: true,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(setHeight(40)),
+            borderRadius: BorderRadius.circular(setHeight(57)),
             child: Stack(
               children: <Widget>[
                 Row(
