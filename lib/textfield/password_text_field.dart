@@ -17,6 +17,7 @@ class PasswordTextField extends StatelessWidget{
   final FocusNode focusNode;
   final ValueChanged<String> onFieldSubmitted;
   final ValueChanged<String> onChanged;
+  String platform;
 
   PasswordTextField({
     this.labelText,
@@ -28,6 +29,7 @@ class PasswordTextField extends StatelessWidget{
     this.textInputAction = TextInputAction.next,
     this.infoText = '',
     this.isError = false,
+    this.platform = 'mobile',
   });
 
   bool isObscurePasswordText = true;
@@ -52,19 +54,19 @@ class PasswordTextField extends StatelessWidget{
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
                     labelText,
-                    style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+                    style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
                   ),
                 ),
               ),
               SizedBox(height: setHeight(8),),
               TextFormField(
                 key: Key('passwordKey'),
-                decoration: inputFocusDecoration(placeholder, infoText, isError, isObscure: isObscurePasswordText, onPressed: (){
+                decoration: inputFocusDecoration(placeholder, infoText, isError, isObscure: isObscurePasswordText, platform: platform, onPressed: (){
                   BlocProvider.of<PasswordBloc>(context)..add(ShowHidePassword(isObscureText: !isObscurePasswordText));
                 }),
                 obscureText: isObscurePasswordText,
                 controller: textController,
-                style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+                style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
                 focusNode: focusNode,
                 keyboardType: TextInputType.text,
                 textInputAction: textInputAction,

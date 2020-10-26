@@ -17,6 +17,7 @@ class DateFieldForm extends StatelessWidget{
   final ValueChanged<String> onFieldSubmitted;
   final GestureTapCallback onTap;
   final ValueChanged<String> onChanged;
+  String platform;
 
   DateFieldForm({
     this.labelText,
@@ -31,6 +32,7 @@ class DateFieldForm extends StatelessWidget{
     this.maxLength = 100,
     this.infoText = '',
     this.isError = false,
+    this.platform = 'mobile',
   });
 
   @override
@@ -43,7 +45,7 @@ class DateFieldForm extends StatelessWidget{
             alignment: AlignmentDirectional.centerStart,
             child: Text(
               labelText,
-              style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+              style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
             ),
           ),
         ),
@@ -51,7 +53,7 @@ class DateFieldForm extends StatelessWidget{
         Container(
           height: setHeight(61),
           decoration: BoxDecoration(
-            color: Color(hexStringToHexInt('#4D574242')),
+            color: Color(hexStringToHexInt(platform == 'web' ? '#E8E8E8' : '#4D574242')),
             borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
             border: isError ? Border.all(width: setHeight(1), color: Color(hexStringToHexInt('#E5333B'))) : null,
           ),
@@ -60,9 +62,9 @@ class DateFieldForm extends StatelessWidget{
               Expanded(
                 child: TextFormField(
                   key: Key('dobKey'),
-                  decoration: inputDecoration(placeholder),
+                  decoration: inputDecoration(placeholder, platform: platform),
                   controller: textController,
-                  style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+                  style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
                   focusNode: focusNode,
                   keyboardType: keyboardType,
                   textInputAction: textInputAction,
@@ -85,7 +87,7 @@ class DateFieldForm extends StatelessWidget{
                       child: Icon(
                         Icons.calendar_today,
                         size: setWidth(20),
-                        color: Color(hexStringToHexInt('#FFFCF2')),
+                        color: Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')),
                       ),
                     ),
                   ),

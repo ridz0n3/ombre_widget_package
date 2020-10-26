@@ -86,10 +86,10 @@ Widget appBar({String title, bool hasBack = true, BuildContext context}){
   );
 }
 
-InputDecoration inputDecoration(String placeholder, {double top = 17, double left = 28}){
+InputDecoration inputDecoration(String placeholder, {double top = 17, double left = 28, String platform = 'mobile'}){
   return InputDecoration(
     labelText: '$placeholder',
-    labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 14, 'Poppins-Regular'),
+    labelStyle: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#4DFFFCF2')), 14, 'Poppins-Regular'),
     hasFloatingPlaceholder: false,
     enabledBorder: const OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.transparent, width: 0.0),
@@ -109,10 +109,10 @@ InputDecoration inputDecoration(String placeholder, {double top = 17, double lef
   );
 }
 
-InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {bool isObscure, VoidCallback onPressed}){
+InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {bool isObscure, VoidCallback onPressed, String platform = 'mobile'}){
   return InputDecoration(
     labelText: placeholder,
-    labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 14, 'Poppins-Regular'),
+    labelStyle: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#4DFFFCF2')).withOpacity(platform == 'web' ? 0.3 : 1), 14, 'Poppins-Regular'),
     hasFloatingPlaceholder: false,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
@@ -136,10 +136,10 @@ InputDecoration inputFocusDecoration(String placeholder, String infoText, bool i
       bottom: setHeight(21.5),
       left: setWidth(30),
     ),
-    fillColor: Color(hexStringToHexInt('#4D574242')),
+    fillColor: Color(hexStringToHexInt(platform == 'web' ? '#E8E8E8' : '#4D574242')),
     filled: true,
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Color(hexStringToHexInt('#FFFCF2')), width: setWidth(1)),
+      borderSide: BorderSide(color: Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), width: setWidth(1)),
       borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
     ),
     enabledBorder: OutlineInputBorder(
@@ -155,7 +155,7 @@ InputDecoration inputFocusDecoration(String placeholder, String infoText, bool i
         icon: Icon(
           !isObscure ? Icons.visibility_off : Icons.visibility,
           size: ScreenUtil().setWidth(20),
-          color: Color(hexStringToHexInt('#FFFCF2')),
+          color: Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')),
         ),
       ),
     ),

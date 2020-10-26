@@ -12,6 +12,7 @@ class TextFieldForm extends StatelessWidget{
   TextInputAction textInputAction;
   int maxLength;
   bool isError;
+  String platform;
   final TextEditingController textController;
   final FocusNode focusNode;
   final ValueChanged<String> onFieldSubmitted;
@@ -35,6 +36,7 @@ class TextFieldForm extends StatelessWidget{
     this.isError = false,
     this.fieldKey,
     this.nextFocusNode,
+    this.platform = 'mobile',
   });
 
   @override
@@ -47,16 +49,16 @@ class TextFieldForm extends StatelessWidget{
             alignment: AlignmentDirectional.centerStart,
             child: Text(
               labelText,
-              style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+              style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
             ),
           ),
         ),
         SizedBox(height: setHeight(8),),
         TextFormField(
           key: Key(fieldKey),
-          decoration: inputFocusDecoration(placeholder, infoText, isError),
+          decoration: inputFocusDecoration(placeholder, infoText, isError, platform: platform),
           controller: textController,
-          style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'),
+          style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
           focusNode: focusNode,
           keyboardType: keyboardType,
           textInputAction: textInputAction,
