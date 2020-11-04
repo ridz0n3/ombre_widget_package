@@ -18,20 +18,20 @@ class MainTwinButton extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: setHeight(57),
+      height: setHeight(40),
       decoration: BoxDecoration(
         //border: Border.all(color: Color(hexStringToHexInt('#D67154'))),
-        borderRadius: BorderRadius.all(Radius.circular(setHeight(57))),
+        borderRadius: BorderRadius.all(Radius.circular(setHeight(40))),
       ),
       child: Material(
         elevation: setHeight(2),
         shadowColor: Color(hexStringToHexInt('#40BB2034')),
-        borderRadius: BorderRadius.circular(setHeight(57)),
+        borderRadius: BorderRadius.circular(setHeight(40)),
         child: GradientBorderButton(
           onPressed: null,
           isSelected: true,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(setHeight(57)),
+            borderRadius: BorderRadius.circular(setHeight(40)),
             child: Stack(
               children: <Widget>[
                 Row(
@@ -46,8 +46,9 @@ class MainTwinButton extends StatelessWidget{
                             Container(
                               color: Color(hexStringToHexInt('#ffffff')),
                               child: Center(
-                                child: Text(backTitle.toUpperCase(),
-                                  style: getCustomFont(Color(hexStringToHexInt(canBack ? '#040303' : '#d2d2d2')), 14, 'Poppins-Bold'),
+                                child: Text(
+                                  backTitle,
+                                  style: getCustomFont(Color(hexStringToHexInt(canBack ? '#040303' : '#d2d2d2')), 11, 'Poppins-Bold'),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -86,8 +87,9 @@ class MainTwinButton extends StatelessWidget{
                                     //borderRadius: BorderRadius.only(topRight: Radius.circular(setHeight(40)), bottomRight: Radius.circular(setHeight(40))),
                                   ),
                                   child: Center(
-                                    child: isLoading ? loadIndicator(isFill: true) : Text(nextTitle.toUpperCase(),
-                                      style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 14, 'Poppins-Bold'),
+                                    child: isLoading ? loadIndicator(isFill: true) : Text(
+                                      nextTitle,
+                                      style: getCustomFont(Color(hexStringToHexInt('#ffffff')), 11, 'Poppins-Bold'),
                                       textAlign: TextAlign.center,
                                     ),
                                   ),

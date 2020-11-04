@@ -101,7 +101,7 @@ class SocialMediaButton extends StatelessWidget{
                             Expanded(
                               child: Text(
                                 title,
-                                style: getCustomFont(Color(hexStringToHexInt('#040303')), 14, 'Poppins-Bold'),
+                                style: getCustomFont(Color(hexStringToHexInt('#040303')), platform == 'web' ? 11 : 14, 'Poppins-Bold'),
                                 textAlign: TextAlign.center,
                               ),
                             ),

@@ -10,6 +10,7 @@ class NormalText extends StatelessWidget{
   String fontFamily;
   TextAlign textAlign;
   bool isStrike;
+  int maxLines;
   NormalText({
     this.text,
     this.fontSize = 11,
@@ -18,6 +19,7 @@ class NormalText extends StatelessWidget{
     this.fontFamily = 'Poppins-Regular',
     this.textAlign = TextAlign.left,
     this.isStrike = false,
+    this.maxLines = 1000,
   });
 
   @override
@@ -27,6 +29,8 @@ class NormalText extends StatelessWidget{
       child: Text(
         text,
         textAlign: textAlign,
+        overflow: TextOverflow.ellipsis,
+        maxLines: maxLines,
         style: getCustomFont(Color(hexStringToHexInt(colorHex)), fontSize, fontFamily, decoration: isStrike ? TextDecoration.lineThrough : null),
       ),
     );

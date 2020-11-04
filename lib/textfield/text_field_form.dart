@@ -49,7 +49,7 @@ class TextFieldForm extends StatelessWidget{
             alignment: AlignmentDirectional.centerStart,
             child: Text(
               labelText,
-              style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
+              style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), platform == 'web' ? 11 : 14, 'Poppins-Regular'),
             ),
           ),
         ),
@@ -58,7 +58,7 @@ class TextFieldForm extends StatelessWidget{
           key: Key(fieldKey),
           decoration: inputFocusDecoration(placeholder, infoText, isError, platform: platform),
           controller: textController,
-          style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), 14, 'Poppins-Regular'),
+          style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), platform == 'web' ? 11 : 14, 'Poppins-Regular'),
           focusNode: focusNode,
           keyboardType: keyboardType,
           textInputAction: textInputAction,

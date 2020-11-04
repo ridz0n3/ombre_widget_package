@@ -7,10 +7,12 @@ class ProgressBar extends StatelessWidget{
   final double percent;
   final String iconName;
   final String percentageStr;
-  ProgressBar({this.percent, this.iconName, this.percentageStr});
+  String platform;
+  ProgressBar({this.percent, this.iconName, this.percentageStr, this.platform = 'mobile'});
 
   @override
   Widget build(BuildContext context) {
+
     return LinearPercentIndicator(
       animation: true,
       animationDuration: 2500,
@@ -30,6 +32,7 @@ class ProgressBar extends StatelessWidget{
       ),
       iconName: iconName,
       percentageStr: percentageStr,
+      platform: platform,
     );
   }
 }

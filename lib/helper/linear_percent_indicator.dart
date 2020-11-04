@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ombre_widget_package/helper/gradient_border.dart';
 import 'package:ombre_widget_package/helper/utils.dart';
 
 enum LinearStrokeCap { butt, round, roundAll }
@@ -64,9 +63,11 @@ class LinearPercentIndicator extends StatefulWidget {
   /// set true when you want to restart the animation, it restarts only when reaches 1.0 as a value
   /// defaults to false
   final bool restartAnimation;
+  String platform;
 
   LinearPercentIndicator(
       {Key key,
+        this.platform = 'mobile',
         this.iconName,
         this.percentageStr,
         this.fillColor = Colors.transparent,
@@ -190,7 +191,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
 
     return Row(
       children: <Widget>[
-        Container(
+        widget.platform == 'web' ? Container() : Container(
           height: setHeight(35),
           width: setWidth(30),
           child: Center(
@@ -199,21 +200,17 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
               height: setHeight(19),
               width: setWidth(14),
               fit: BoxFit.scaleDown,
+              color: Color(hexStringToHexInt(widget.platform == 'web' ? '#040303' : '#FDFFFC')),
+              colorBlendMode: BlendMode.modulate,
             ),
           ),
         ),
-        SizedBox(width: setWidth(16),),
+        widget.platform == 'web' ? Container() : SizedBox(width: setWidth(16),),
         Expanded(
-          child: ProgressUnicornOutlineBorder(
-            strokeWidth: 2,
-            radius: setHeight(100),
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [1.0],
-              colors: [
-                Color(hexStringToHexInt('#2F2323')),
-              ],
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(width: setHeight(2), color: Color(hexStringToHexInt('#2F2323')).withOpacity(0.3)),
+              borderRadius: BorderRadius.circular(setHeight(35)),
             ),
             child: containerWidget,
           ),
@@ -222,7 +219,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
         Container(
           child: Text(
             widget.percentageStr,
-            style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 8, 'Poppins-Regular'),
+            style: getCustomFont(Color(hexStringToHexInt(widget.platform == 'web' ? '#040303' : '#FFFCF2')), 8, 'Poppins-Regular'),
           ),
         ),
       ],
