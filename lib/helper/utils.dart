@@ -17,13 +17,14 @@ bool isDigit(String s, int idx) => "0".compareTo(s[idx]) <= 0 && "9".compareTo(s
 
 TextStyle getCustomFont(Color color, double fontSize, String fontName, { TextDecoration decoration = TextDecoration.none}) {
   return new TextStyle(
-      decoration: decoration,
+    letterSpacing: fontName.contains('Poppins') ? 0.5 : 0,
+    decoration: decoration,
       // set color of text
-      color: color,
+    color: color,
       // set the font family as defined in pubspec.yaml
-      fontFamily: fontName,
+    fontFamily: fontName,
       // set the font size
-      fontSize: ScreenUtil().setSp(fontSize, allowFontScalingSelf: true)
+    fontSize: ScreenUtil().setSp(fontSize, allowFontScalingSelf: true),
   );
 }
 
