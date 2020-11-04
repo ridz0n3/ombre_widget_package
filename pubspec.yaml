@@ -32,6 +32,7 @@ flutter:
     - assets/
     - assets/animations/
     - assets/images/
+    - assets/images/menu/
 
   fonts:
     - family: PlayfairDisplay-Regular
