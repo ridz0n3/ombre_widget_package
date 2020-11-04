@@ -51,7 +51,7 @@ class DateFieldForm extends StatelessWidget{
         ),
         SizedBox(height: setHeight(8),),
         Container(
-          height: setHeight(61),
+          height: setHeight(platform == 'web' ? 40 : 61),
           decoration: BoxDecoration(
             color: Color(hexStringToHexInt(platform == 'web' ? '#E8E8E8' : '#4D574242')),
             borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
