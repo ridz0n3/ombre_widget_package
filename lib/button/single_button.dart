@@ -16,8 +16,9 @@ class SingleButton extends StatelessWidget{
   double height;
   double fontSize;
   String type;
+  String colorHex;
 
-  SingleButton({this.fontSize = 14, this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = '', this.type = 'mobile'});
+  SingleButton({this.colorHex = '', this.fontSize = 14, this.height = 57, this.isLoading = false, this.isFill = false, this.title, this.onPressed, this.hasImg = false, this.imgName = '', this.type = 'mobile'});
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,8 @@ class SingleButton extends StatelessWidget{
                 isFill ? Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
-                    color: Colors.white,
-                    gradient: LinearGradient(
+                    color: colorHex != '' ? Color(hexStringToHexInt(colorHex)) : Colors.white,
+                    gradient: colorHex != '' ? null : LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                       stops: [0.0, 0.17, 0.47, 0.69, 1.0],
