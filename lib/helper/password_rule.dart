@@ -6,7 +6,8 @@ class PasswordRule extends StatelessWidget{
   final String title;
   final bool isContain;
   bool isWarning;
-  PasswordRule({this.title, this.isContain, this.isWarning = false});
+  bool isActive;
+  PasswordRule({this.title, this.isContain, this.isWarning = false, this.isActive = false});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class PasswordRule extends StatelessWidget{
           height: setHeight(10),
           width: setHeight(10),
           decoration: BoxDecoration(
-            border: Border.all(width: setHeight(1), color: isContain || isWarning ? Colors.transparent : Color(hexStringToHexInt('#FFFCF2'))),
+            border: Border.all(width: setHeight(1), color: isContain || isWarning ? Colors.transparent : Color(hexStringToHexInt('#FFFCF2')).withOpacity(isActive ? 1 : 0.1)),
             borderRadius: BorderRadius.circular(setHeight(10)),
             gradient: isContain ? LinearGradient(
               begin: Alignment.centerLeft,
