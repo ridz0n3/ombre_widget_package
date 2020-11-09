@@ -113,7 +113,7 @@ InputDecoration inputDecoration(String placeholder, {double top = 17, double lef
 InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {bool isObscure, VoidCallback onPressed, String platform = 'mobile'}){
   return InputDecoration(
     labelText: placeholder,
-    labelStyle: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#4DFFFCF2')).withOpacity(platform == 'web' ? 0.3 : 1), platform == 'web' ? 11 : 14, 'Poppins-Regular'),
+    labelStyle: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')).withOpacity(0.3), platform == 'web' ? 11 : 14, 'Poppins-Regular'),
     hasFloatingPlaceholder: false,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
