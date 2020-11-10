@@ -110,13 +110,14 @@ InputDecoration inputDecoration(String placeholder, {double top = 17, double lef
   );
 }
 
-InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {bool isObscure, VoidCallback onPressed, String platform = 'mobile'}){
+InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {bool isObscure = false, VoidCallback onPressed, String platform = 'mobile', double height = 61, bool isPicker = false}){
   return InputDecoration(
+    alignLabelWithHint: true,
     labelText: placeholder,
     labelStyle: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')).withOpacity(0.3), platform == 'web' ? 11 : 14, 'Poppins-Regular'),
     hasFloatingPlaceholder: false,
     border: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+      borderRadius: BorderRadius.all(Radius.circular(setHeight(height))),
     ),
     counter: infoText != '' ? Padding(
       padding: EdgeInsets.only(
@@ -136,18 +137,28 @@ InputDecoration inputFocusDecoration(String placeholder, String infoText, bool i
       top: setHeight(21.5),
       bottom: setHeight(21.5),
       left: setWidth(30),
+      right: setWidth(30),
     ),
     fillColor: Color(hexStringToHexInt(platform == 'web' ? '#E8E8E8' : '#4D574242')),
     filled: true,
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), width: setWidth(1)),
-      borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+      borderRadius: BorderRadius.all(Radius.circular(setHeight(height))),
     ),
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(color: isError ? Color(hexStringToHexInt('#E5333B')) : Colors.transparent, width: 1.0),
-      borderRadius: BorderRadius.all(Radius.circular(setHeight(61))),
+      borderRadius: BorderRadius.all(Radius.circular(setHeight(height))),
     ),
-    suffixIcon: isObscure == null ? null : Padding(
+    suffixIcon: isPicker ? Padding(
+      padding: EdgeInsets.only(
+        right: setWidth(18),
+      ),
+      child: Icon(
+        Icons.keyboard_arrow_down,
+        size: setWidth(20),
+        color: Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')),
+      ),
+    ) : isObscure == null || onPressed == null ? null : Padding(
       padding: EdgeInsets.only(
         right: setWidth(18),
       ),

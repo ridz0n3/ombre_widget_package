@@ -12,7 +12,10 @@ class TextFieldForm extends StatelessWidget{
   TextInputAction textInputAction;
   int maxLength;
   bool isError;
+  double height;
+  int maxLines;
   String platform;
+  bool isPicker;
   final TextEditingController textController;
   final FocusNode focusNode;
   final ValueChanged<String> onFieldSubmitted;
@@ -37,6 +40,9 @@ class TextFieldForm extends StatelessWidget{
     this.fieldKey,
     this.nextFocusNode,
     this.platform = 'mobile',
+    this.height = 61,
+    this.maxLines = 1,
+    this.isPicker = false,
   });
 
   @override
@@ -56,7 +62,7 @@ class TextFieldForm extends StatelessWidget{
         SizedBox(height: setHeight(8),),
         TextFormField(
           key: Key(fieldKey),
-          decoration: inputFocusDecoration(placeholder, infoText, isError, platform: platform),
+          decoration: inputFocusDecoration(placeholder, infoText, isError, platform: platform, height: height, isPicker: isPicker),
           controller: textController,
           style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), platform == 'web' ? 11 : 14, 'Poppins-Regular'),
           focusNode: focusNode,
@@ -65,8 +71,10 @@ class TextFieldForm extends StatelessWidget{
           onFieldSubmitted: (value){
             FocusScope.of(context).requestFocus(nextFocusNode);
           },
+          onTap: onTap,
           onChanged: onChanged,
           maxLength: maxLength,
+          maxLines: maxLines,
         ),
       ],
     );
