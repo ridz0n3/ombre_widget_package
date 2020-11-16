@@ -19,7 +19,8 @@ class MainSlider extends StatefulWidget{
   final bool typeChange;
   final double viewWidth;
   final ScaleCallback onChanged;
-  MainSlider({this.mainType, this.subType, this.typeChange, this.viewWidth, this.onChanged, this.initialValue});
+  bool isReset;
+  MainSlider({this.mainType, this.subType, this.typeChange, this.viewWidth, this.onChanged, this.initialValue, this.isReset = false});
 
   @override
   _MainSliderState createState() => _MainSliderState();
@@ -51,17 +52,17 @@ class _MainSliderState extends State<MainSlider> {
 
       if(widget.mainType == Type.cm){
 
-          double moveToFeet = double.tryParse(widget.initialValue) ?? 0;
-          double moveToPixel = moveToFeet / 0.1 * ScreenUtil().setWidth(1) + 1;
-          _heightCmController.jumpTo(moveToPixel);
+        double moveToFeet = double.tryParse(widget.initialValue) ?? 0;
+        double moveToPixel = moveToFeet / 0.1 * ScreenUtil().setWidth(1) + 1;
+        _heightCmController.jumpTo(moveToPixel);
 
-          double feet = convertCmToFeet(widget.initialValue);
-          double inch = getInchBalance(widget.initialValue);
+        double feet = convertCmToFeet(widget.initialValue);
+        double inch = getInchBalance(widget.initialValue);
 
-          double feetToInch = feet * 12;
-          double inchToScalePoints = feetToInch * ScreenUtil().setWidth(25) + 1 + inch * ScreenUtil().setWidth(25) + 1;
-          _heightFtController.jumpTo(inchToScalePoints);
-        }
+        double feetToInch = feet * 12;
+        double inchToScalePoints = feetToInch * ScreenUtil().setWidth(25) + 1 + inch * ScreenUtil().setWidth(25) + 1;
+        _heightFtController.jumpTo(inchToScalePoints);
+      }
 
     });
 
@@ -79,11 +80,51 @@ class _MainSliderState extends State<MainSlider> {
         _weightLbController.jumpTo(moveLbToPixel);
       }
     });
-    
+
   }
 
   @override
   Widget build(BuildContext context) {
+
+    if(widget.isReset){
+      Future.delayed(Duration(milliseconds: 50), (){
+
+        if(widget.mainType == Type.cm){
+
+          double moveToFeet = double.tryParse(widget.initialValue) ?? 0;
+          double moveToPixel = moveToFeet / 0.1 * ScreenUtil().setWidth(1) + 1;
+          _heightCmController.jumpTo(moveToPixel);
+
+          double feet = convertCmToFeet(widget.initialValue);
+          double inch = getInchBalance(widget.initialValue);
+
+          double feetToInch = feet * 12;
+          double inchToScalePoints = feetToInch * ScreenUtil().setWidth(25) + 1 + inch * ScreenUtil().setWidth(25) + 1;
+          _heightFtController.jumpTo(inchToScalePoints);
+        }
+
+      });
+
+      Future.delayed(Duration(milliseconds: 50), (){
+
+        if(widget.mainType == Type.kg) {
+          double moveToKg = double.tryParse(widget.initialValue) ?? 0;
+          double moveKgToPixel = moveToKg / 0.1 * ScreenUtil().setWidth(20) + 1;
+          _weightKgController.animateTo(
+              moveKgToPixel, curve: Curves.fastOutSlowIn,
+              duration: Duration(milliseconds: 100));
+
+          double moveToLb = double.parse((moveToKg * 2.205).toStringAsFixed(1));
+          double moveLbToPixel = moveToLb / 0.1 * ScreenUtil().setWidth(9) + 1;
+          _weightLbController.jumpTo(moveLbToPixel);
+        }
+      });
+
+      widget.isReset = false;
+      setState(() {});
+    }
+
+    print(widget.initialValue);
     if(widget.mainType == Type.kg){
       return Stack(
         children: <Widget>[
