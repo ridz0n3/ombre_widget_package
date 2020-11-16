@@ -18,6 +18,7 @@ class PasswordTextField extends StatelessWidget{
   final ValueChanged<String> onFieldSubmitted;
   final ValueChanged<String> onChanged;
   String platform;
+  final FocusNode nextFocusNode;
 
   PasswordTextField({
     this.labelText,
@@ -31,6 +32,7 @@ class PasswordTextField extends StatelessWidget{
     this.isError = false,
     this.platform = 'mobile',
     this.hasRule = false,
+    this.nextFocusNode,
   });
 
   bool isObscurePasswordText = true;
@@ -92,7 +94,9 @@ class PasswordTextField extends StatelessWidget{
                       onChanged: hasRule ? (value) {
                         BlocProvider.of<PasswordBloc>(context)..add(ValidatePasswordStrength(password: value));
                       } : onChanged,
-                      onFieldSubmitted: onFieldSubmitted,
+                        onFieldSubmitted: (value){
+                          FocusScope.of(context).requestFocus(nextFocusNode);
+                        },
                     ),
                   ],
                 ),
