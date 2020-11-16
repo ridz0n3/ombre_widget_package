@@ -124,7 +124,6 @@ class _MainSliderState extends State<MainSlider> {
       setState(() {});
     }
 
-    print(widget.initialValue);
     if(widget.mainType == Type.kg){
       return Stack(
         children: <Widget>[
