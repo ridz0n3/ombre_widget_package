@@ -13,25 +13,29 @@ class UnderlineButton extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      padding: EdgeInsets.all(0),
-      onPressed: onPressed,
-      child: Container(
-        width: ScreenUtil().setWidth(width),
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Text(
-                title,
-                style: getCustomFont(Color(hexStringToHexInt(colorHex)), fontSize, 'Poppins-Bold'),
+    return AnimatedOpacity(
+      duration: Duration(milliseconds: 500),
+      opacity: onPressed == null ? 0.5 : 1,
+      child: CupertinoButton(
+        padding: EdgeInsets.all(0),
+        onPressed: onPressed,
+        child: Container(
+          width: ScreenUtil().setWidth(width),
+          child: Column(
+            children: <Widget>[
+              Container(
+                child: Text(
+                  title,
+                  style: getCustomFont(Color(hexStringToHexInt(colorHex)), fontSize, 'Poppins-Bold'),
+                ),
               ),
-            ),
-            SizedBox(height: ScreenUtil().setHeight(5),),
-            Container(
-              height: ScreenUtil().setHeight(1),
-              color: Color(hexStringToHexInt('#F89825')),
-            )
-          ],
+              SizedBox(height: ScreenUtil().setHeight(5),),
+              Container(
+                height: ScreenUtil().setHeight(1),
+                color: Color(hexStringToHexInt('#F89825')),
+              )
+            ],
+          ),
         ),
       ),
     );
