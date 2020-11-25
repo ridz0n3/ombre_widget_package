@@ -10,6 +10,10 @@ class PickerBloc extends Bloc<PickerEvent, PickerState>{
       yield LoadingPicker();
       yield ColorPickerSelected(mainIndex: event.mainIndex, subIndex: event.subIndex);
     }
+    else if(event is LoadColorPicker){
+      yield LoadingPicker();
+      yield ColorPickerLoaded(mainIndex: event.mainIndex, subIndex: event.subIndex);
+    }
   }
 
 }

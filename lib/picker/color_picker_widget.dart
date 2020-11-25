@@ -12,24 +12,31 @@ typedef void ColorPickerCallback(int mainIndex, int subIndex);
 class ColorPickerWidget extends StatelessWidget{
 
   final ColorPickerCallback onChanged;
+  final int mainIndex;
+  final int subIndex;
   bool shrinkWrap;
   ScrollPhysics physics;
-  ColorPickerWidget({this.onChanged, this.shrinkWrap = false, this.physics = const AlwaysScrollableScrollPhysics()});
+  ColorPickerWidget({this.mainIndex, this.subIndex, this.onChanged, this.shrinkWrap = false, this.physics = const AlwaysScrollableScrollPhysics()});
 
-  int mainIndex;
-  int subIndex;
+  int tempMainIndex;
+  int tempSubIndex;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PickerBloc>(
-      create: (context) => PickerBloc(),
+      create: (context) => PickerBloc()..add(LoadColorPicker(mainIndex: mainIndex, subIndex: subIndex)),
       child: BlocBuilder<PickerBloc, PickerState>(
         builder: (context, state){
 
           if(state is ColorPickerSelected){
-            mainIndex = state.mainIndex;
-            subIndex = state.subIndex;
-            onChanged(mainIndex, subIndex);
+            tempMainIndex = state.mainIndex;
+            tempSubIndex = state.subIndex;
+            onChanged(tempMainIndex, tempSubIndex);
+          }
+
+          if(state is ColorPickerLoaded){
+            tempMainIndex = state.mainIndex;
+            tempSubIndex = state.subIndex;
           }
 
           return StaggeredGridView.countBuilder(
@@ -65,7 +72,7 @@ class ColorPickerWidget extends StatelessWidget{
                               flex: 2,
                               child: ColorCard(
                                 colorHex: ombreColor[index][3],
-                                isSelected: mainIndex == index && subIndex == 3 ? true : false,
+                                isSelected: tempMainIndex == index && tempSubIndex == 3 ? true : false,
                                 onPressed: () => BlocProvider.of<PickerBloc>(context)..add(SelectColorPicker(mainIndex: index, subIndex: 3)),
                               ),
                             ),
@@ -75,14 +82,14 @@ class ColorPickerWidget extends StatelessWidget{
                                   Expanded(
                                     child: ColorCard(
                                       colorHex: ombreColor[index][5],
-                                      isSelected: mainIndex == index && subIndex == 5 ? true : false,
+                                      isSelected: tempMainIndex == index && tempSubIndex == 5 ? true : false,
                                       onPressed: () => BlocProvider.of<PickerBloc>(context)..add(SelectColorPicker(mainIndex: index, subIndex: 5)),
                                     ),
                                   ),
                                   Expanded(
                                     child: ColorCard(
                                       colorHex: ombreColor[index][4],
-                                      isSelected: mainIndex == index && subIndex == 4 ? true : false,
+                                      isSelected: tempMainIndex == index && tempSubIndex == 4 ? true : false,
                                       onPressed: () => BlocProvider.of<PickerBloc>(context)..add(SelectColorPicker(mainIndex: index, subIndex: 4)),
                                     ),
                                   ),
@@ -98,21 +105,21 @@ class ColorPickerWidget extends StatelessWidget{
                             Expanded(
                               child: ColorCard(
                                 colorHex: ombreColor[index][0],
-                                isSelected: mainIndex == index && subIndex == 0 ? true : false,
+                                isSelected: tempMainIndex == index && tempSubIndex == 0 ? true : false,
                                 onPressed: () => BlocProvider.of<PickerBloc>(context)..add(SelectColorPicker(mainIndex: index, subIndex: 0)),
                               ),
                             ),
                             Expanded(
                               child: ColorCard(
                                 colorHex: ombreColor[index][1],
-                                isSelected: mainIndex == index && subIndex == 1 ? true : false,
+                                isSelected: tempMainIndex == index && tempSubIndex == 1 ? true : false,
                                 onPressed: () => BlocProvider.of<PickerBloc>(context)..add(SelectColorPicker(mainIndex: index, subIndex: 1)),
                               ),
                             ),
                             Expanded(
                               child: ColorCard(
                                 colorHex: ombreColor[index][2],
-                                isSelected: mainIndex == index && subIndex == 2 ? true : false,
+                                isSelected: tempMainIndex == index && tempSubIndex == 2 ? true : false,
                                 onPressed: () => BlocProvider.of<PickerBloc>(context)..add(SelectColorPicker(mainIndex: index, subIndex: 2)),
                               ),
                             ),

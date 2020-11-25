@@ -20,3 +20,13 @@ class ColorPickerSelected extends PickerState{
   @override
   List<Object> get props => [mainIndex, subIndex];
 }
+
+class ColorPickerLoaded extends PickerState{
+  final int mainIndex;
+  final subIndex;
+
+  ColorPickerLoaded({this.mainIndex, this.subIndex});
+
+  @override
+  List<Object> get props => [mainIndex, subIndex];
+}

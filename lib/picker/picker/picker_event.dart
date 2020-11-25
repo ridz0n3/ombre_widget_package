@@ -16,3 +16,13 @@ class SelectColorPicker extends PickerEvent{
   @override
   List<Object> get props => [mainIndex, subIndex];
 }
+
+class LoadColorPicker extends PickerEvent{
+  final int mainIndex;
+  final subIndex;
+
+  LoadColorPicker({this.mainIndex, this.subIndex});
+
+  @override
+  List<Object> get props => [mainIndex, subIndex];
+}
