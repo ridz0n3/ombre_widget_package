@@ -5,16 +5,18 @@ import 'package:ombre_widget_package/helper/utils.dart';
 class HeaderText extends StatelessWidget{
   final String title;
   double top;
+  double left;
+  double right;
   double fontSize;
-  HeaderText({this.title, this.top = 32, this.fontSize = 29});
+  HeaderText({this.title, this.top = 32, this.left = 33, this.right = 33, this.fontSize = 29, });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
         top: ScreenUtil().setHeight(top),
-        left: ScreenUtil().setWidth(33),
-        right: ScreenUtil().setWidth(33),
+        left: ScreenUtil().setWidth(left),
+        right: ScreenUtil().setWidth(right),
       ),
       child: Hero(
         tag: 'header',

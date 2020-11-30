@@ -34,6 +34,7 @@ class animated_dialog_box {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    HeaderText(title: title, fontSize: 18, top: 25, left: 16, right: 16,),
                     Padding(
                       padding: EdgeInsets.only(
                         left: setWidth(25),
@@ -43,7 +44,6 @@ class animated_dialog_box {
                       child: Container(
                         child: Column(
                           children: <Widget>[
-                            HeaderText(title: title, fontSize: 18, top: 25,),
                             SizedBox(height: setWidth(25),),
                             NormalText(
                               text: description,
