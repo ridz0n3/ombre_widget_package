@@ -8,7 +8,10 @@ class MenuButtonWidget extends StatelessWidget{
   final VoidCallback onPressed;
   final String title;
   final String imageName;
-  MenuButtonWidget({this.title, this.imageName, this.onPressed});
+  bool hasIcon;
+  bool isSelected;
+  String subTitle;
+  MenuButtonWidget({this.title, this.imageName, this.onPressed, this.hasIcon = true, this.subTitle = '', this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +25,31 @@ class MenuButtonWidget extends StatelessWidget{
             Padding(
               padding: EdgeInsets.only(
                 top: setHeight(8),
-                left: setWidth(38.5),
-                right: setWidth(38.5),
+                left: setWidth(hasIcon ? 38.5 : 24),
+                right: setWidth(hasIcon ? 38.5 : 24),
               ),
               child: Row(
                 children: <Widget>[
-                  Container(
-                    height: setHeight(16),
-                    width: setWidth(17),
-                    child: Image.asset('assets/images/menu/$imageName.png'),
+                  hasIcon ? Padding(
+                    padding: EdgeInsets.only(
+                      right: setWidth(11),
+                    ),
+                    child: Container(
+                      height: setHeight(16),
+                      width: setWidth(17),
+                      child: Image.asset('assets/images/menu/$imageName.png'),
+                    ),
+                  ) : Container(),
+                  Expanded(
+                    child: NormalText(
+                      text: title,
+                    ),
                   ),
-                  SizedBox(width: setWidth(11),),
                   NormalText(
-                    text: title,
+                    text: subTitle,
+                    fontFamily: 'Poppins-Bold',
                   ),
+                  isSelected ? Icon(Icons.check, color: Colors.white, size: setHeight(14),) : Container(),
                 ],
               ),
             ),
