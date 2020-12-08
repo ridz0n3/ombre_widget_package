@@ -13,6 +13,8 @@ class UninitializedPassword extends PasswordState{}
 
 class LoadingPassword extends PasswordState{}
 
+class ValueValidated extends PasswordState{}
+
 class PasswordShowHide extends PasswordState{
   final bool isObscureText;
   PasswordShowHide({this.isObscureText});
@@ -46,6 +48,8 @@ class ShowHidePassword extends PasswordEvent{
   @override
   List<Object> get props => [isObscureText];
 }
+
+class ValidatePassword1 extends PasswordEvent{}
 
 class ValidatePasswordStrength extends PasswordEvent{
   final String password;
@@ -102,6 +106,10 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState>{
         hasSymbol: hasSymbol,
         hasUppercase: hasUppercase,
       );
+    }
+    else if(event is ValidatePassword1){
+      yield LoadingPassword();
+      yield ValueValidated();
     }
   }
 

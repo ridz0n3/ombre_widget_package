@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ombre_widget_package/helper/gradient_border.dart';
-
 import '../helper/utils.dart';
 
 class SingleButton extends StatelessWidget{
@@ -26,12 +24,12 @@ class SingleButton extends StatelessWidget{
     return Opacity(
       opacity: isActive ? 1 : 0.5,
       child: Container(
-        height: ScreenUtil().setHeight(height),
+        height: setHeight(height),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height))
+            borderRadius: BorderRadius.circular(setHeight(height))
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
+          borderRadius: BorderRadius.circular(setHeight(height)),
           child: CupertinoButton(
               padding: const EdgeInsets.all(0.0),
               child: Stack(
@@ -39,7 +37,7 @@ class SingleButton extends StatelessWidget{
                 children: <Widget>[
                   isFill ? Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
+                      borderRadius: BorderRadius.circular(setHeight(height)),
                       color: colorHex != '' ? Color(hexStringToHexInt(colorHex)) : Colors.white,
                       gradient: colorHex != '' ? null : LinearGradient(
                         begin: Alignment.centerLeft,
@@ -78,7 +76,7 @@ class SingleButton extends StatelessWidget{
                     ),
                   ) : type == 'mobile' ? UnicornOutlineButton(
                     strokeWidth: 2,
-                    radius: ScreenUtil().setHeight(height),
+                    radius: setHeight(height),
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
@@ -92,14 +90,14 @@ class SingleButton extends StatelessWidget{
                       ],
                     ),
                     child: Center(
-                      child: isLoading ? loadIndicator(isFill: isFill) : Text(title,
+                      child: isLoading ? Container(child: loadIndicator(isFill: !isFill), height: setHeight(30), width: setHeight(30)) : Text(title,
                         style: getCustomFont(Color(hexStringToHexInt('#ffffff')), fontSize, 'Poppins-Bold'),
                         textAlign: TextAlign.center,
                       ),
                     ),
                   ) : Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
+                      borderRadius: BorderRadius.circular(setHeight(height)),
                       color: Colors.white,
                       gradient: LinearGradient(
                         begin: Alignment.centerLeft,
@@ -118,7 +116,7 @@ class SingleButton extends StatelessWidget{
                       padding: EdgeInsets.all(setHeight(1)),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(height)),
+                          borderRadius: BorderRadius.circular(setHeight(height)),
                           color: Color(hexStringToHexInt('#ffffff')),
                         ),
                         child: Center(

@@ -12,6 +12,7 @@ class PasswordTextField extends StatelessWidget{
   String infoText;
   bool isError;
   bool hasRule;
+  bool hasValue;
   TextInputAction textInputAction;
   final TextEditingController textController;
   final FocusNode focusNode;
@@ -32,6 +33,7 @@ class PasswordTextField extends StatelessWidget{
     this.isError = false,
     this.platform = 'mobile',
     this.hasRule = false,
+    this.hasValue = false,
     this.nextFocusNode,
   });
 
@@ -44,12 +46,18 @@ class PasswordTextField extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PasswordBloc>(
-      create: (context) => PasswordBloc(),
+      create: (context) => PasswordBloc()..add(ValidatePassword1()),
       child: BlocBuilder<PasswordBloc, PasswordState>(
         builder: (context, state){
 
           if(state is PasswordShowHide){
             isObscurePasswordText = state.isObscureText;
+          }
+
+          if(state is ValueValidated){
+            if(hasValue){
+              BlocProvider.of<PasswordBloc>(context)..add(ValidatePasswordStrength(password: textController.text));
+            }
           }
 
           if(state is PasswordStrengthValidated){
@@ -94,9 +102,9 @@ class PasswordTextField extends StatelessWidget{
                       onChanged: hasRule ? (value) {
                         BlocProvider.of<PasswordBloc>(context)..add(ValidatePasswordStrength(password: value));
                       } : onChanged,
-                        onFieldSubmitted: (value){
-                          FocusScope.of(context).requestFocus(nextFocusNode);
-                        },
+                      onFieldSubmitted: (value){
+                        FocusScope.of(context).requestFocus(nextFocusNode);
+                      },
                     ),
                   ],
                 ),
