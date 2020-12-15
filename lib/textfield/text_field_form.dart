@@ -16,6 +16,7 @@ class TextFieldForm extends StatelessWidget{
   int maxLines;
   String platform;
   bool isPicker;
+  TextCapitalization textCapitalization;
   final TextEditingController textController;
   final FocusNode focusNode;
   final ValueChanged<String> onFieldSubmitted;
@@ -43,6 +44,7 @@ class TextFieldForm extends StatelessWidget{
     this.height = 61,
     this.maxLines = 1,
     this.isPicker = false,
+    this.textCapitalization = TextCapitalization.none,
   });
 
   @override
@@ -71,6 +73,7 @@ class TextFieldForm extends StatelessWidget{
           onFieldSubmitted: (value){
             FocusScope.of(context).requestFocus(nextFocusNode);
           },
+          textCapitalization: textCapitalization,
           onTap: onTap,
           onChanged: onChanged,
           maxLength: maxLength,
