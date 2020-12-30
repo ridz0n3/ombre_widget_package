@@ -48,7 +48,7 @@ class SocialMediaButton extends StatelessWidget{
                       left: setWidth(34.5),
                       right: setWidth(24.5),
                     ),
-                    child: isLoading ? loadIndicator() : Row(
+                    child: isLoading ? loadIndicator(isFill: true) : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -93,7 +93,7 @@ class SocialMediaButton extends StatelessWidget{
                           left: setWidth(34.5),
                           right: setWidth(24.5),
                         ),
-                        child: isLoading ? loadIndicator(isFill: true) : Row(
+                        child: isLoading ? loadIndicator() : Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
