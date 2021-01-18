@@ -15,7 +15,7 @@ class ScrollViews extends StatelessWidget {
           controller: scrollController,
           scrollDirection: scrollDirection,
           child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: viewportConstraints.maxHeight),
+            constraints: scrollDirection == Axis.horizontal ? BoxConstraints(minWidth: viewportConstraints.maxWidth) : BoxConstraints(minHeight: viewportConstraints.maxHeight),
             child: scrollDirection == Axis.horizontal ? Row(children: children) : Column(children: children),
           ),
         );
