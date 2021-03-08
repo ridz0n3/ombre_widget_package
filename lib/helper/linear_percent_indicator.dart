@@ -191,7 +191,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
 
     return Row(
       children: <Widget>[
-        widget.platform == 'web' ? Container() : Container(
+        widget.platform == 'web' ? Container() : widget.iconName == '' ? Container() : Container(
           height: setHeight(35),
           width: setWidth(30),
           child: Center(
@@ -205,7 +205,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
             ),
           ),
         ),
-        widget.platform == 'web' ? Container() : SizedBox(width: setWidth(16),),
+        widget.platform == 'web' ? Container() : widget.iconName == '' ? Container() : SizedBox(width: setWidth(16),),
         Expanded(
           child: Container(
             decoration: BoxDecoration(
@@ -216,7 +216,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
           ),
         ),
         SizedBox(width: setWidth(23),),
-        Container(
+        widget.percentageStr == '' ? Container() : Container(
           child: Text(
             widget.percentageStr,
             style: getCustomFont(Color(hexStringToHexInt(widget.platform == 'web' ? '#040303' : '#FFFCF2')), 8, 'Poppins-Regular'),
