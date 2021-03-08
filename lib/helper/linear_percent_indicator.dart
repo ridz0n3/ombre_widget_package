@@ -215,7 +215,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
             child: containerWidget,
           ),
         ),
-        SizedBox(width: setWidth(23),),
+        widget.percentageStr == '' ? Container() : SizedBox(width: setWidth(23),),
         widget.percentageStr == '' ? Container() : Container(
           child: Text(
             widget.percentageStr,
