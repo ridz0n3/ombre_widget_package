@@ -269,3 +269,31 @@ Widget actionButton(BuildContext context, String title, String imgName){
     ),
   );
 }
+
+InputDecoration searchInputDecoration(String placeholder, {bool isFocus = false, VoidCallback onTap}){
+  return InputDecoration(
+    labelText: '$placeholder',
+    labelStyle: getCustomFont(Color(hexStringToHexInt('#4DFFFCF2')), 14, 'Poppins-Regular'),
+    hasFloatingPlaceholder: false,
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.transparent, width: 0.0),
+      borderRadius: BorderRadius.circular(setHeight(8)),
+    ),
+    contentPadding: EdgeInsets.only(
+      top: setHeight(8),
+      bottom: setHeight(8),
+      left: setWidth(28),
+    ),
+    counterText: "",
+    focusedBorder:OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.transparent, width: 0.0),
+      borderRadius: BorderRadius.circular(setHeight(8)),
+    ),
+    alignLabelWithHint: true,
+    prefixIcon: Icon(Icons.search, color: Color(hexStringToHexInt(isFocus ? '#FFFCF2' : '#4DFFFCF2')),),
+    suffixIcon: isFocus ? GestureDetector(child: Icon(Icons.navigate_next_rounded, color: Color(hexStringToHexInt('#FFFCF2')), size: setHeight(30),), onTap: onTap,) : null,
+    fillColor: Color(hexStringToHexInt('#4D574242')),
+    filled: true,
+  );
+}
+
