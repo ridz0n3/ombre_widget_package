@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ombre_widget_package/helper/utils.dart';
@@ -18,7 +20,7 @@ class BackButtonWidget extends StatelessWidget{
         child: Container(
           height: setHeight(24),
           width: setHeight(24),
-          child: Icon(Icons.arrow_back, color: Color(hexStringToHexInt('#FDFFFC')),),
+          child: Icon(Platform.isAndroid ? Icons.arrow_back : CupertinoIcons.back, color: Color(hexStringToHexInt('#FDFFFC')),),
         ),
       ),
     );
