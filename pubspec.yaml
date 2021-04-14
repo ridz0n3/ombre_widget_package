@@ -12,6 +12,7 @@ dependencies:
   flutter_screenutil:
   flutter_spinkit:
   flutter_bloc: ^5.0.1
+  date_format: ^1.0.8
   equatable:
   flushbar: ^1.10.4
   flutter:

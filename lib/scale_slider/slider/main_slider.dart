@@ -272,19 +272,4 @@ class _MainSliderState extends State<MainSlider> {
       setState(() {});
     }
   }
-
-  double convertFeetToCm(height1, height2){
-    var ftToIn = (double.parse(height1) * 30.48) + (double.parse(height2) * 2.54);
-    return ftToIn;
-  }
-
-  double convertCmToFeet(height1){
-    var cmToFt = double.parse(height1) / 30.48;
-    return cmToFt.floorToDouble();
-  }
-
-  double getInchBalance(height1){
-    var bal = (double.parse(height1) % 30.48) / 2.54;
-    return bal.roundToDouble();
-  }
 }

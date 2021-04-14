@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:date_format/date_format.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
@@ -71,15 +72,15 @@ double setWidth(double width){
   return ScreenUtil().setWidth(width);
 }
 
-Widget appBar({String title, bool hasBack = true, BuildContext context}){
+Widget appBar({String title, bool hasBack = true, bool hasClose = false, BuildContext context, VoidCallback onTap}){
 
   return AppBar(
     title: Text(title, style: getCustomFont(Colors.white, 18, 'PlayfairDisplay-Bold')),
     centerTitle: true,
     automaticallyImplyLeading: hasBack,
     leading: hasBack ? new IconButton(
-      icon: new Icon(Platform.isAndroid ? Icons.arrow_back : CupertinoIcons.back),
-      onPressed: () {
+      icon: hasClose ? Icon(Icons.close_rounded) : Icon(Platform.isAndroid ? Icons.arrow_back : CupertinoIcons.back),
+      onPressed: onTap != null ? onTap : () {
         Navigator.of(context).pop();
       },
     ) : null,
@@ -197,5 +198,74 @@ InputDecoration biometricInputDecoration(String placeholder){
     hintText: '0',
     suffixText: '$placeholder',
     suffixStyle: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Bold'),
+  );
+}
+
+double convertFeetToCm(height1, height2) {
+  var ftToIn = (double.parse(height1) * 30.48) + (double.parse(height2) * 2.54);
+  return ftToIn;
+}
+
+double convertCmToFeet(height1) {
+  var cmToFt = double.parse(height1) / 30.48;
+  return cmToFt.floorToDouble();
+}
+
+double getInchBalance(height1) {
+  var bal = (double.parse(height1) % 30.48) / 2.54;
+  return bal.roundToDouble() == 12 ? 0 : bal.roundToDouble();
+}
+
+String convertDateStringFromDate(DateTime date) {
+  final todayDate = date;
+  return formatDate(todayDate, [d, ' ', M, ' ', yyyy]);
+}
+
+DateTime convertApiDateFromString(String time){
+  DateTime todayDate = DateTime.parse(time);
+  return todayDate;
+}
+
+Widget actionButton(BuildContext context, String title, String imgName){
+
+  return InkWell(
+    onTap: () => Navigator.pop(context, title),
+    child: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: [0.0, 0.1],
+          colors: [
+            Color(hexStringToHexInt('#00040303')),
+            Color(hexStringToHexInt('#040303')),
+          ],
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            height: setHeight(50),
+            color: Colors.black,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: setWidth(56),
+                  child: Image.asset(
+                    'assets/images/$imgName.png',
+                    height: setHeight(15.5),
+                    width: setWidth(18),
+                  ),
+                ),
+                SizedBox(width: setWidth(22),),
+                Text(title, style: getCustomFont(Color(hexStringToHexInt('#FFFCF2')), 14, 'Poppins-Regular'))
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
   );
 }
