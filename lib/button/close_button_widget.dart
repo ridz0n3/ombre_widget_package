@@ -13,7 +13,7 @@ class CloseButtonWidget extends StatelessWidget{
   Widget build(BuildContext context) {
     return CupertinoButton(
       padding: EdgeInsets.all(0),
-      onPressed: () => onPressed != null ? onPressed : Navigator.pop(context),
+      onPressed: onPressed != null ? onPressed : () => Navigator.pop(context),
       child: Container(
         height: setHeight(size),
         width: setHeight(size),
