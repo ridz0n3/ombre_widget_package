@@ -72,7 +72,7 @@ double setWidth(double width){
   return ScreenUtil().setWidth(width);
 }
 
-Widget appBar({String title, bool hasBack = true, bool hasClose = false, BuildContext context, VoidCallback onTap}){
+Widget appBar({String title, bool hasBack = true, bool hasClose = false, BuildContext context, VoidCallback onTap, Widget actions}){
 
   return AppBar(
     title: Text(title, style: getCustomFont(Colors.white, 18, 'PlayfairDisplay-Bold')),
@@ -84,6 +84,7 @@ Widget appBar({String title, bool hasBack = true, bool hasClose = false, BuildCo
         Navigator.of(context).pop();
       },
     ) : null,
+    actions: actions != null ? [ actions ] : [],
     backgroundColor: Color(hexStringToHexInt('#040303')),
   );
 }
