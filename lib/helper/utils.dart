@@ -112,7 +112,7 @@ InputDecoration inputDecoration(String placeholder, {double top = 17, double lef
   );
 }
 
-InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {bool isObscure = false, VoidCallback onPressed, String platform = 'mobile', double height = 61, bool isPicker = false}){
+InputDecoration inputFocusDecoration(String placeholder, String infoText, bool isError, {String colorHex = '', bool isObscure = false, VoidCallback onPressed, String platform = 'mobile', double height = 61, bool isPicker = false}){
   return InputDecoration(
     alignLabelWithHint: true,
     labelText: placeholder,
@@ -141,7 +141,7 @@ InputDecoration inputFocusDecoration(String placeholder, String infoText, bool i
       left: setWidth(30),
       right: setWidth(30),
     ),
-    fillColor: Color(hexStringToHexInt(platform == 'web' ? '#E8E8E8' : '#4D574242')),
+    fillColor: Color(hexStringToHexInt(platform == 'web' ? '#E8E8E8' : colorHex != '' ? colorHex : '#4D574242')),
     filled: true,
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), width: setWidth(1)),

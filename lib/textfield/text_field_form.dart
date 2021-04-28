@@ -16,6 +16,7 @@ class TextFieldForm extends StatelessWidget{
   int maxLines;
   String platform;
   bool isPicker;
+  String colorHex;
   TextCapitalization textCapitalization;
   final TextEditingController textController;
   final FocusNode focusNode;
@@ -37,6 +38,7 @@ class TextFieldForm extends StatelessWidget{
     this.textInputAction = TextInputAction.next,
     this.maxLength = 100,
     this.infoText = '',
+    this.colorHex = '',
     this.isError = false,
     this.fieldKey,
     this.nextFocusNode,
@@ -64,7 +66,7 @@ class TextFieldForm extends StatelessWidget{
         SizedBox(height: setHeight(8),),
         TextFormField(
           key: Key(fieldKey),
-          decoration: inputFocusDecoration(placeholder, infoText, isError, platform: platform, height: height, isPicker: isPicker),
+          decoration: inputFocusDecoration(placeholder, infoText, isError, platform: platform, height: height, isPicker: isPicker, colorHex: colorHex),
           controller: textController,
           style: getCustomFont(Color(hexStringToHexInt(platform == 'web' ? '#040303' : '#FFFCF2')), platform == 'web' ? 11 : 14, 'Poppins-Regular'),
           focusNode: focusNode,
